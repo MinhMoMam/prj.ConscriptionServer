@@ -55,9 +55,9 @@ class dataContainer:
             if name != "":
                 retDataFrame = retDataFrame[retDataFrame[self.config["HoVaTen"]["ColumnLabel"]] == name]
             if yearOfBirth != "":
-                retDataFrame = retDataFrame[retDataFrame[self.config["NamSinh"]["ColumnLabel"]] == int(yearOfBirth)]
+                retDataFrame = retDataFrame[retDataFrame[self.config["NamSinh"]["ColumnLabel"]] == str(yearOfBirth)]
             if commune != "":
-                retDataFrame = retDataFrame[retDataFrame[self.config["DCThT_Ap"]["ColumnLabel"]] == int(commune)]
+                retDataFrame = retDataFrame[retDataFrame[self.config["DCThT_Ap"]["ColumnLabel"]] == str(commune)]
             for index, row in retDataFrame.iterrows():
                 retDict = {}
                 retDict["name"]         = row[self.config["HoVaTen"]["ColumnLabel"]]

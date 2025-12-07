@@ -18,6 +18,7 @@ columnList:
   - DCThT_Xa
   - DCThT_TinhTP
   - DCTaT_SoNha
+  - DCTaT_Ap
   - DCTaT_Xa
   - DCTaT_TinhTP
   - ThanhPhan
@@ -28,6 +29,40 @@ columnList:
   - ChuyenNganhDaoTao
   - NgheNghiepHienNay
   - NoiLamViecHocTap
+  - HoVaTenCha
+  - NgaySinhCha
+  - ThangSinhCha
+  - NamSinhCha
+  - NgheNghiepCha
+  - ChaTruoc30_04_1975
+  - ChaSau30_04_1975
+  - HoVaTenMe
+  - NgaySinhMe
+  - ThangSinhMe
+  - NamSinhMe
+  - NgheNghiepMe
+  - MeTruoc30_04_1975
+  - MeSau30_04_1975
+  - HoVaTenVo
+  - TongSoNguoiConTrongGD
+  - SoNguoiConTrai
+  - SoNguoiConGai
+  - LaConThuTrongGD
+  - HocC1
+  - HocC1PhuongXa
+  - HocC1TinhTP
+  - HocC1Tu
+  - HocC1Den
+  - HocC2
+  - HocC2PhuongXa
+  - HocC2TinhTP
+  - HocC2Tu
+  - HocC2Den
+  - HocC3
+  - HocC3PhuongXa
+  - HocC3TinhTP
+  - HocC3Tu
+  - HocC3Den
 
 Sheet: "DATA BASE"
 
@@ -179,5 +214,175 @@ NgheNghiepHienNay:
 
 NoiLamViecHocTap:
   ColumnLabel: "Nơi làm việc và học tập"
+  hidden: True
+  editable: False
+
+HoVaTenCha:
+  ColumnLabel: "Họ tên cha"
+  hidden: True
+  editable: False
+
+NgaySinhCha:
+  ColumnLabel: "Cha - Ngày sinh"
+  hidden: True
+  editable: False
+
+ThangSinhCha:
+  ColumnLabel: "Cha - Tháng sinh"
+  hidden: True
+  editable: False
+
+NamSinhCha:
+  ColumnLabel: "Cha - Năm sinh"
+  hidden: True
+  editable: False
+
+NgheNghiepCha:
+  ColumnLabel: "Nghề nghiệp cha"
+  hidden: True
+  editable: False
+
+HoVaTenMe:
+  ColumnLabel: "Họ tên mẹ"
+  hidden: True
+  editable: False
+
+NgaySinhMe:
+  ColumnLabel: "Mẹ - ngày sinh"
+  hidden: True
+  editable: False
+
+ThangSinhMe:
+  ColumnLabel: "Mẹ - Tháng sinh"
+  hidden: True
+  editable: False
+
+NamSinhMe:
+  ColumnLabel: "Mẹ - Năm sinh"
+  hidden: True
+  editable: False
+
+NgheNghiepMe:
+  ColumnLabel: "Nghề nghiệp mẹ"
+  hidden: True
+  editable: False
+
+HoVaTenVo:
+  ColumnLabel: "Họ tên vợ ( chồng )"
+  hidden: True
+  editable: False
+
+TongSoNguoiConTrongGD:
+  ColumnLabel: "Tổng con trong gia đình"
+  hidden: True
+  editable: False
+
+SoNguoiConTrai:
+  ColumnLabel: "con trai"
+  hidden: True
+  editable: False
+
+SoNguoiConGai:
+  ColumnLabel: "con \ngái"
+  hidden: True
+  editable: False
+
+LaConThuTrongGD:
+  ColumnLabel: "Con thứ mấy"
+  hidden: True
+  editable: False
+
+HocC1:
+  ColumnLabel: "C1"
+  hidden: True
+  editable: False
+
+HocC1PhuongXa:
+  ColumnLabel: "C1 - Phường/Xã"
+  hidden: True
+  editable: False
+
+HocC1TinhTP:
+  ColumnLabel: "C1 - tỉnh/Tp"
+  hidden: True
+  editable: False
+
+HocC1Tu:
+  ColumnLabel: "C1 - Năm nhập học "
+  hidden: True
+  editable: False
+
+HocC1Den:
+  ColumnLabel: "C1 - Năm tốt nghiệp"
+  hidden: True
+  editable: False
+
+HocC2:
+  ColumnLabel: "C2"
+  hidden: True
+  editable: False
+
+HocC2PhuongXa:
+  ColumnLabel: "C2 - Phường/Xã"
+  hidden: True
+  editable: False
+
+HocC2TinhTP:
+  ColumnLabel: "C2 - tỉnh/Tp"
+  hidden: True
+  editable: False
+
+HocC2Tu:
+  ColumnLabel: "C2 - Năm nhập học "
+  hidden: True
+  editable: False
+
+HocC2Den:
+  ColumnLabel: "C2 - Năm tốt nghiệp"
+  hidden: True
+  editable: False
+
+HocC3:
+  ColumnLabel: "C3"
+  hidden: True
+  editable: False
+
+HocC3PhuongXa:
+  ColumnLabel: "C3 - Phường/Xã"
+  hidden: True
+  editable: False
+
+HocC3TinhTP:
+  ColumnLabel: "C3 - tỉnh/Tp"
+  hidden: True
+  editable: False
+
+HocC3Tu:
+  ColumnLabel: "C3 - Năm nhập học "
+  hidden: True
+  editable: False
+
+HocC3Den:
+  ColumnLabel: "C3 - Năm tốt nghiệp"
+  hidden: True
+  editable: False
+
+ChaTruoc30_04_1975:
+  ColumnLabel: "Cha trước 30/04/1975"
+  hidden: True
+  editable: False
+
+ChaSau30_04_1975:
+  ColumnLabel: "Cha sau 30/04/1975"
+  hidden: True
+  editable: False
+
+MeTruoc30_04_1975:
+  ColumnLabel: "Mẹ trước 30/04/1975"
+  hidden: True
+  editable: False
+
+MeSau30_04_1975:
+  ColumnLabel: "Mẹ sau 30/04/1975"
   hidden: True
   editable: False

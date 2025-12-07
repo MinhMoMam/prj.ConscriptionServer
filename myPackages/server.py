@@ -9,7 +9,6 @@ excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
 settingFile = "setting/labelConfig.yaml"
 dataCon = dc.dataContainer(excelFile,settingFile)
 
-items = ["a","b","c","d"]
 # Mount static folder for CSS/JS/images
 templates = Jinja2Templates(directory="templates")
 
