@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý Lịch Nghĩa Vụ Quân Sự - Mẫu</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 40px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header p {
+            margin: 0;
+            line-height: 1.2;
+        }
+        .title {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .info-item {
+            margin-bottom: 8px;
+        }
+        /* Đã thêm font-size: 0.9em; vào đây */
+        .placeholder-input {
+            border: none;
+            border-bottom: 1px dotted #000;
+            padding: 0 5px;
+            min-width: 50px;
+            display: inline-block;
+            font-family: inherit;
+            /* ĐIỀU CHỈNH KÍCH THƯỚC CHỮ TẠI ĐÂY */
+            font-size: 0.9em; 
+        }
+        .line-full {
+            width: 60%;
+        }
+        /* Custom size adjustments for inputs */
+        input[name*="ngay"], input[name*="thang"] { width: 40px; }
+        input[name*="nam"] { width: 60px; }
+        input[name*="cccd"] { width: 250px; }
+        input[name*="diachi"] { width: 500px; }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 3em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <p><strong>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong></p>
+        <p><strong>Độc lập - Tự do - Hạnh phúc</strong></p>
+        <hr style="width: 30%; margin: 5px auto;">
+    </div>
+
+    <div class="title">NGHĨA VỤ QUÂN SỰ</div>
+
+    <form action="/submit-military-data" method="POST">
+
+        <div class="section-title">I. SƠ YẾU LÝ LỊCH</div>
+        <div class="info-item">Họ, chữ đệm và tên khai sinh (viết chữ in hoa): 
+            <input type="text" name="HOVATEN" value="{{ obj['HOVATEN'] }}" class="placeholder-input line-full" required>
+        </div>
+        <div class="info-item">Họ, chữ đệm và tên thường dùng: 
+            <input type="text" name="HoVaTen" value="{{ obj['HoVaTen'] }}" class="placeholder-input line-full">
+        </div>
+        <div class="info-item">Sinh ngày 
+            <input type="text" name="NgaySinh" value="{{ obj['NgaySinh'] }}" class="placeholder-input"> tháng 
+            <input type="text" name="ThangSinh" value="{{ obj['ThangSinh'] }}" class="placeholder-input"> năm 
+            <input type="text" name="NamSinh" value="{{ obj['NamSinh'] }}" class="placeholder-input"> Giới tính (nam, nữ) Nam.
+        </div>
+        <div class="info-item">Số thẻ căn cước CCCD: 
+            <input type="text" name="CCCD" value="{{ obj['CCCD'] }}" class="placeholder-input">.
+        </div>
+        <div class="info-item">Nơi đăng ký khai sinh: 
+            <input type="text" name="NoiDangKyKhaiSinh" value="{{ obj['NoiDangKyKhaiSinh'] }}" class="placeholder-input line-full">.
+        </div>
+        <div class="info-item">Quê quán: 
+            <input type="text" name="QueQuanThanhNien" value="{{ obj['QueQuanThanhNien'] }}" class="placeholder-input line-full">.
+        </div>
+        <div class="info-item">Dân tộc: 
+            <input type="text" name="DanToc" value="{{ obj['DanToc'] }}" size="15" class="placeholder-input">. Tôn giáo: 
+            <input type="text" name="TonGiao" value="{{ obj['TonGiao'] }}" size="15" class="placeholder-input">. Quốc tịch: 
+            <input type="text" name="QuocTich" value="{{ obj['QuocTich'] }}" size="15" class="placeholder-input">
+        </div>
+        <div class="info-item">Nơi thường trú của gia đình: 
+            <input type="text" name="DCThT_SoNha" value="{{ obj['DCThT_SoNha'] }}" class="placeholder-input diachi"> ấp 
+            <input type="text" name="DCThT_Ap" value="{{ obj['DCThT_Ap'] }}" size="10" class="placeholder-input">, 
+            <input type="text" name="DCThT_Xa" value="{{ obj['DCThT_Xa'] }}" size="10" class="placeholder-input">, 
+            <input type="text" name="DCThT_TinhTP" value="{{ obj['DCThT_TinhTP' ]}}" size="10" class="placeholder-input">.
+        </div>
+        <div class="info-item">Nơi ở hiện tại của bản thân: 
+            <input type="text" name="DCTaT_SoNha" value="{{ obj['DCTaT_SoNha'] }}" class="placeholder-input diachi"> ấp 
+            <input type="text" name="DCTaT_Ap" value="{{ obj['DCTaT_Ap'] }}" size="10" class="placeholder-input">, 
+            <input type="text" name="DCTaT_Xa" value="{{ obj['DCTaT_Xa'] }}" size="10" class="placeholder-input">, 
+            <input type="text" name="DCTaT_TinhTP" value="{{ obj['DCTaT_TinhTP'] }}" size="10" class="placeholder-input">.
+        </div>
+        <div class="info-item">Thành phần gia đình: 
+            <input type="text" name="ThanhPhan" value="{{ obj['ThanhPhan'] }}" class="placeholder-input">. Bản thân: 
+            <input type="text" name="BanThan" value="{{ obj['BanThan'] }}" class="placeholder-input">.
+        </div>
+        <div class="info-item">Trình độ giáo dục phổ thông: 
+            <input type="text" name="HocVanDai" value="{{ obj['HocVanDai'] }}" class="placeholder-input line-full">
+        </div>
+        <div class="info-item">Trình độ đào tạo: 
+            <input type="text" name="TrinhDoHocVan" value="{{ obj['TrinhDoHocVan'] }}" class="placeholder-input">, Ngoại ngữ: Không
+        </div>
+        <div class="info-item">Chuyên ngành đào tạo: 
+            <input type="text" name="ChuyenNganhDaoTao" value="{{ obj['ChuyenNganhDaoTao'] }}" class="placeholder-input line-full">
+        </div>
+        <div class="info-item">Nghề nghiệp: 
+            <input type="text" name="NgheNghiepHienNay" value="{{obj['NgheNghiepHienNay'] }}" class="placeholder-input line-full">
+        </div>
+        <div class="info-item">Nơi làm việc, (học tập): 
+            <input type="text" name="NoiLamViecHocTap" value="{{ obj['NoiLamViecHocTap'] }}" class="placeholder-input line-full">.
+        </div>
+        <div class="info-item">Họ tên cha: 
+            <input type="text" name="hoten_cha" value="<D29>" class="placeholder-input">. Sinh ngày 
+            <input type="text" name="cha_ngay" value="<D30>" class="placeholder-input"> tháng 
+            <input type="text" name="cha_thang" value="<D31>" class="placeholder-input"> năm 
+            <input type="text" name="cha_nam" value="<D32>" class="placeholder-input">. Nghề nghiệp: 
+            <input type="text" name="cha_nghe_nghiep" value="<D33>" class="placeholder-input">.
+        </div>
+        <div class="info-item">Họ tên mẹ: 
+            <input type="text" name="hoten_me" value="<D34>" class="placeholder-input">. Sinh ngày 
+            <input type="text" name="me_ngay" value="<D35>" class="placeholder-input"> tháng 
+            <input type="text" name="me_thang" value="<D36>" class="placeholder-input"> năm 
+            <input type="text" name="me_nam" value="<D37>" class="placeholder-input">. Nghề nghiệp: 
+            <input type="text" name="me_nghe_nghiep" value="<D38>" class="placeholder-input">.
+        </div>
+        <div class="info-item">Họ tên vợ (chồng): 
+            <input type="text" name="hoten_vc" value="<D39>" class="placeholder-input">. Sinh ngày 
+            <input type="text" name="vc_ngay" value="<D40a>" class="placeholder-input"> tháng 
+            <input type="text" name="vc_thang" value="<D40b>" class="placeholder-input"> năm 
+            <input type="text" name="vc_nam" value="<D40c>" class="placeholder-input">. Nghề nghiệp 
+            <input type="text" name="vc_nghe_nghiep" value="<D42>" class="placeholder-input">
+        </div>
+        <div class="info-item">Cha mẹ có 
+            <input type="text" name="tong_con" value="<D43>" size="5" class="placeholder-input"> người con, 
+            <input type="text" name="tong_trai" value="<D44>" size="5" class="placeholder-input"> trai 
+            <input type="text" name="tong_gai" value="<D45>" size="5" class="placeholder-input"> gái; bản thân là con 
+            <input type="text" name="vi_tri_con" value="<D46>" size="5" class="placeholder-input">.
+        </div>
+
+        <div class="section-title">II. TÌNH HÌNH KINH TẾ, CHÍNH TRỊ CỦA GIA ĐÌNH</div>
+        <div class="info-item">Họ và tên cha: 
+            <input type="text" name="hoten_cha_2" value="<D29>" class="placeholder-input">. Sinh năm: 
+            <input type="text" name="nam_sinh_cha_2" value="<D32>" class="placeholder-input">. Nghề nghiệp: 
+            <input type="text" name="nghe_cha_2" value="<D33>" class="placeholder-input">.
+        </div>
+        <div class="info-item">Họ và tên mẹ: 
+            <input type="text" name="hoten_me_2" value="<D34>" class="placeholder-input">. Sinh năm: 
+            <input type="text" name="nam_sinh_me_2" value="<D37>" class="placeholder-input">. Nghề nghiệp: 
+            <input type="text" name="nghe_me_2" value="<D38>" class="placeholder-input">.
+        </div>
+        <p>Tình hình KT, CT, XH trước năm 1954 đối với miền Bắc và trước 4/1975 đối với miền Nam:</p>
+        <div class="info-item">Cha: 
+            <input type="text" name="ktct_cha_truoc" value="<D56>" class="placeholder-input line-full">.
+        </div>
+        <div class="info-item">Mẹ: 
+            <input type="text" name="ktct_me_truoc" value="<D68>" class="placeholder-input line-full">.
+        </div>
+        <p>Tình hình KT, CT, XH sau năm 1954 đối với miền Bắc và sau 4/1975 đối với miền Nam đến nay:</p>
+        <div class="info-item">Cha: 
+            <input type="text" name="ktct_cha_sau" value="<D57>" class="placeholder-input line-full">
+        </div>
+        <div class="info-item">Mẹ: 
+            <input type="text" name="ktct_me_sau" value="<D69>" class="placeholder-input line-full">.
+        </div>
+
+        <div class="section-title">III. TÌNH HÌNH KINH TẾ, CHÍNH TRỊ, QUÁ TRÌNH CÔNG TÁC CỦA BẢN THÂN</div>
+        <div class="info-item">Năm 2013 - 2018 học sinh trường Tiểu học 
+            <input type="text" name="th_truong" value="<D75>" class="placeholder-input">, 
+            <input type="text" name="th_xa" value="<D76>" class="placeholder-input">, 
+            <input type="text" name="th_huyen" value="<D77>" class="placeholder-input">. Kết quả học tập:
+        </div>
+        <div class="info-item">Năm 2018 - 2022 học sinh trường Trung học cơ sở 
+            <input type="text" name="thcs_truong" value="<D76>" class="placeholder-input">, 
+            <input type="text" name="thcs_xa" value="<D80>" class="placeholder-input">, 
+            <input type="text" name="thcs_huyen" value="<D81>" class="placeholder-input">. Kết quả học tập:
+        </div>
+        <div class="info-item">Năm 2022 - 2025 học sinh trường Trung học phổ thông 
+            <input type="text" name="thpt_truong" value="<D83>" class="placeholder-input">, 
+            <input type="text" name="thpt_xa" value="<D84>" class="placeholder-input">, 
+            <input type="text" name="thpt_huyen" value="<D85>" class="placeholder-input">. Kết quả học tập:
+        </div>
+
+        <p style="text-align: center;">
+            <button id="myButton" type="submit">Gửi dữ liệu</button>
+        </p>
+    </form>
+    </body>
+</html>

@@ -1,0 +1,183 @@
+columnList:
+  - MaDS
+  - NoiDungXepLoai
+  - HOVATEN
+  - HoVaTen
+  - NgaySinh
+  - ThangSinh
+  - NamSinh
+  - CCCD
+  - NgayCapCCCD
+  - NoiDangKyKhaiSinh
+  - QueQuanThanhNien
+  - DanToc
+  - TonGiao
+  - QuocTich
+  - DCThT_SoNha
+  - DCThT_Ap
+  - DCThT_Xa
+  - DCThT_TinhTP
+  - DCTaT_SoNha
+  - DCTaT_Xa
+  - DCTaT_TinhTP
+  - ThanhPhan
+  - BanThan
+  - HocVan
+  - HocVanDai
+  - TrinhDoHocVan
+  - ChuyenNganhDaoTao
+  - NgheNghiepHienNay
+  - NoiLamViecHocTap
+
+Sheet: "DATA BASE"
+
+MaDS:
+  ColumnLabel: "Mã 4DS"
+  hidden: True
+  editable: False
+
+NoiDungXepLoai:
+  ColumnLabel: "Nội dung xếp loại"
+  hidden: True
+  editable: False
+
+HOVATEN:
+  ColumnLabel: "Họ và tên"
+  hidden: True
+  editable: False
+
+HoVaTen:
+  ColumnLabel: "Họ và tên - "
+  hidden: True
+  editable: False
+
+NgaySinh:
+  ColumnLabel: "Ngày sinh"
+  hidden: True
+  editable: False
+
+ThangSinh:
+  ColumnLabel: "Tháng sinh"
+  hidden: True
+  editable: False
+
+NamSinh:
+  ColumnLabel: "Năm sinh"
+  hidden: True
+  editable: False
+
+CCCD:
+  ColumnLabel: "CCCD"
+  hidden: True
+  editable: False
+
+NgayCapCCCD:
+  ColumnLabel: "Ngày cấp"
+  hidden: True
+  editable: False
+
+NoiDangKyKhaiSinh:
+  ColumnLabel: "Nơi đăng ký khai sinh"
+  hidden: True
+  editable: False
+
+QueQuanThanhNien:
+  ColumnLabel: "Quê quán thanh niên"
+  hidden: True
+  editable: False
+
+DanToc:
+  ColumnLabel: "Dân tộc"
+  hidden: True
+  editable: False
+
+TonGiao:
+  ColumnLabel: "Tôn giáo"
+  hidden: True
+  editable: False
+
+QuocTich:
+  ColumnLabel: "Quốc tịch"
+  hidden: True
+  editable: False
+
+DCThT_SoNha:
+  ColumnLabel: "Thường trú - số nhà"
+  hidden: True
+  editable: False
+
+DCThT_Ap:
+  ColumnLabel: "Thường trú - ấp"
+  hidden: True
+  editable: False
+
+DCThT_Xa:
+  ColumnLabel: "Thường trú - xã"
+  hidden: True
+  editable: False
+
+DCThT_TinhTP:
+  ColumnLabel: "Thường trú - tỉnh/Tp"
+  hidden: True
+  editable: False
+
+
+DCTaT_SoNha:
+  ColumnLabel: "Tạm trú - số nhà"
+  hidden: True
+  editable: False
+
+DCTaT_Ap:
+  ColumnLabel: "Tạm trú - ấp"
+  hidden: True
+  editable: False
+
+DCTaT_Xa:
+  ColumnLabel: "Tạm trú - xã"
+  hidden: True
+  editable: False
+
+DCTaT_TinhTP:
+  ColumnLabel: "Tạm trú - tỉnh/Tp"
+  hidden: True
+  editable: False
+
+ThanhPhan:
+  ColumnLabel: "Thành phần"
+  hidden: True
+  editable: False
+
+BanThan:
+  ColumnLabel: "Bản thân"
+  hidden: True
+  editable: False
+
+HocVan:
+  ColumnLabel: "Học vấn"
+  hidden: True
+  editable: False
+
+HocVanDai:
+  ColumnLabel: "Học vấn;\nChuyên môn kỹ thuật;\nĐảng (ngày kết nạp);\nĐoàn."
+  hidden: True
+  editable: False
+
+TrinhDoHocVan:
+  ColumnLabel: "Trình độ chuyên môn"
+  hidden: True
+  editable: False
+
+ChuyenNganhDaoTao:
+  ColumnLabel: "Chuyên ngành đào tạo"
+  hidden: True
+  editable: False
+
+NgheNghiepHienNay:
+  ColumnLabel: "Nghề nghiệp hiện nay"
+  hidden: True
+  editable: False
+
+NoiLamViecHocTap:
+  ColumnLabel: "Nơi làm việc và học tập"
+  hidden: True
+  editable: False

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Danh sách + Thanh tìm kiếm</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Tra cứu thông tin nghĩa vụ quân sự</h1>
+    <div class="container"></div>
+        <form autocomplete="off" action="/ObjectSearching">
+            
+            <div class="autocomplete" style="width:250px;">
+                <input id="Name" type="text" name="Name" placeholder="Tên thanh niên">
+            </div>
+            <div class="autocomplete" style="width:150px;">
+                <input id="YearOfBirth" type="text" name="YearOfBirth" placeholder="Năm sinh">
+            </div>
+            <div class="autocomplete" style="width:150px;">
+                <input id="Commune" type="text" name="Commune" placeholder="Ấp">
+            </div>
+            <input type="submit">
+            
+        </form>
+    </div>
+    <br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th width = 250px>Tên</th>
+                <th width = 150px>Năm sinh</th>
+                <th width = 150px>Ấp</th>
+                <th width = 150px>XEM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in ObjectList %}
+            <tr>
+                <td width = 250px>{{ obj.name }}</td>
+                <td width = 150px align="center">{{ obj.yearOfBirth }}</td>
+                <td width = 150px align="center">{{ obj.commune }}</td>
+                <td  align="center">
+                    <a href="/details?Name={{ obj.name }}&YearOfBirth={{ obj.yearOfBirth }}&Commune={{ obj.commune }}">Xem thêm</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Link external JS -->
+    <script src="/static/rootScript.js"></script>
+    <script>
+        const NameList = {{ NameList | tojson }};
+    </script>
+    <script>
+        const yearOfBirthList = {{ YearOfBirthList | tojson }};
+    </script>
+    <script>
+        const CommuneList = {{ CommuneList | tojson }};
+    </script>
+    <script>
+    autocomplete(document.getElementById("Name"), NameList);
+    </script>
+    <script>
+    autocomplete(document.getElementById("YearOfBirth"), yearOfBirthList);
+    </script>
+    <script>
+    autocomplete(document.getElementById("Commune"), CommuneList);
+    </script>
+</body>
+</html>

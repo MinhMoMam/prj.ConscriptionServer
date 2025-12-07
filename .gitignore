@@ -1,0 +1,8 @@
+/__pycache__
+/myPackages/__pycache__
+/build
+/dist
+/data
+/Database
+/.vscode
+main.spec
