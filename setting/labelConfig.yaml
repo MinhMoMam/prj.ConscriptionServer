@@ -1,388 +1,711 @@
-columnList:
-  - MaDS
-  - NoiDungXepLoai
-  - HOVATEN
-  - HoVaTen
-  - NgaySinh
-  - ThangSinh
-  - NamSinh
-  - CCCD
-  - NgayCapCCCD
-  - NoiDangKyKhaiSinh
-  - QueQuanThanhNien
-  - DanToc
-  - TonGiao
-  - QuocTich
-  - DCThT_SoNha
-  - DCThT_Ap
-  - DCThT_Xa
-  - DCThT_TinhTP
-  - DCTaT_SoNha
-  - DCTaT_Ap
-  - DCTaT_Xa
-  - DCTaT_TinhTP
-  - ThanhPhan
-  - BanThan
-  - HocVan
-  - HocVanDai
-  - TrinhDoHocVan
-  - ChuyenNganhDaoTao
-  - NgheNghiepHienNay
-  - NoiLamViecHocTap
-  - HoVaTenCha
-  - NgaySinhCha
-  - ThangSinhCha
-  - NamSinhCha
-  - NgheNghiepCha
-  - ChaTruoc30_04_1975
-  - ChaSau30_04_1975
-  - HoVaTenMe
-  - NgaySinhMe
-  - ThangSinhMe
-  - NamSinhMe
-  - NgheNghiepMe
-  - MeTruoc30_04_1975
-  - MeSau30_04_1975
-  - HoVaTenVo
-  - TongSoNguoiConTrongGD
-  - SoNguoiConTrai
-  - SoNguoiConGai
-  - LaConThuTrongGD
-  - HocC1
-  - HocC1PhuongXa
-  - HocC1TinhTP
-  - HocC1Tu
-  - HocC1Den
-  - HocC2
-  - HocC2PhuongXa
-  - HocC2TinhTP
-  - HocC2Tu
-  - HocC2Den
-  - HocC3
-  - HocC3PhuongXa
-  - HocC3TinhTP
-  - HocC3Tu
-  - HocC3Den
-
 Sheet: "DATA BASE"
 
-MaDS:
+columnList:
+- Ma4ds
+- Noidungxeploai
+- Hovaten
+- Ngaysinh
+- Thangsinh
+- Namsinh
+- Cccd
+- Ngaycap
+- Noiangkykhaisinh
+- Quequanthanhnien
+- Dantoc
+- Tongiao
+- Quoctich
+- Thuongtrusonha
+- Thuongtruap
+- Thuongtruxa
+- Thuongtrutinhtp
+- Tamtrusonha
+- Tamtruap
+- Tamtruxa
+- Tamtrutinhtp
+- Thanhphan
+- Banthan
+- Hocvan
+- Trinhochuyenmon
+- Chuyennganhaotao
+- Nghenghiephiennay
+- Noilamviecvahoctap
+- Hotencha
+- Changaysinh
+- Thangsinhcha
+- Namsinhcha
+- Chasongchet
+- Nghenghiepcha
+- Hotenme
+- Mengaysinh
+- Thangsinhme
+- Namsinhme
+- Mesongchet
+- Nghenghiepme
+- Hotenvochong
+- Ngaysinhvochong
+- Thangsinhvochong
+- Namsinhvochong
+- Nghenghiepcuavochong
+- Banthanthanhnienacoconhaychua
+- Tongcontronggiainh
+- Contrai
+- Congai
+- Conthumay
+- Quequancuacha
+- Thuongtruchasonha
+- Thuongtruchaap
+- Thuongtruchaxa
+- Thuongtruchatinhtp
+- Tamtruchasonha
+- Tamtruchaap
+- Tamtruchaxa
+- Tamtruchatinhtp
+- Cha1tuoien5tuoi
+- Cha5tuoientruochethon
+- Chasaukethonennay
+- Hiennaychalamgitaiau
+- Quequancuame
+- Thuongtrumesonha
+- Thuongtrumeap
+- Thuongtrumexa
+- Thuongtrumetinhtp
+- Tamtrumesonha
+- Tamtrumeap
+- Tamtrumexa
+- Tamtrumetinhtp
+- Me1tuoien5tuoi
+- Me5tuoientruochethon
+- Mesaukethonennay
+- Hiennaymelamgitaiau
+- Hovatenace
+- Ngaythangnamsinhcuaace
+- Nghenghiepace
+- Vochongace
+- C1
+- C1phuongxa
+- C1tinhtp
+- C1namnhaphoc
+- C1namtotnghiep
+- C2
+- C2phuongxa
+- C2tinhtp
+- C2namnhaphoc
+- C2namtotnghiep
+- C3
+- C3phuongxa
+- C3tinhtp
+- C3namnhaphoc
+- C3namtotnghiep
+- 18nay
+- Hiennay
+- Soienthoaithanhnien
+- Soienthoaicha
+- Soienthoaime
+- Soienthoainguoithankhac
+
+
+Ma4ds:
   ColumnLabel: "Mã 4DS"
-  hidden: True
-  editable: False
+  Question: "Mã 4DS"
+  Group: "personal"
+  DataType: "hiden"
 
-NoiDungXepLoai:
+Noidungxeploai:
   ColumnLabel: "Nội dung xếp loại"
-  hidden: True
-  editable: False
+  Question: "Nội dung xếp loại"
+  Group: "personal"
+  DataType: "hiden"
 
-HOVATEN:
+Hovaten:
   ColumnLabel: "Họ và tên"
-  hidden: True
-  editable: False
+  Question: "Họ và tên"
+  Group: "personal"
+  DataType: "string"
 
-HoVaTen:
-  ColumnLabel: "Họ và tên - "
-  hidden: True
-  editable: False
-
-NgaySinh:
+Ngaysinh:
   ColumnLabel: "Ngày sinh"
-  hidden: True
-  editable: False
+  Question: "Ngày sinh"
+  Group: "personal"
+  DataType: "number"
 
-ThangSinh:
+Thangsinh:
   ColumnLabel: "Tháng sinh"
-  hidden: True
-  editable: False
+  Question: "Tháng sinh"
+  Group: "personal"
+  DataType: "number"
 
-NamSinh:
+Namsinh:
   ColumnLabel: "Năm sinh"
-  hidden: True
-  editable: False
+  Question: "Năm sinh"
+  Group: "personal"
+  DataType: "number"
 
-CCCD:
+Cccd:
   ColumnLabel: "CCCD"
-  hidden: True
-  editable: False
+  Question: "CCCD"
+  Group: "personal"
+  DataType: "string"
 
-NgayCapCCCD:
+Ngaycap:
   ColumnLabel: "Ngày cấp"
-  hidden: True
-  editable: False
+  Question: "Ngày cấp"
+  Group: "personal"
+  DataType: "number"
 
-NoiDangKyKhaiSinh:
+Noiangkykhaisinh:
   ColumnLabel: "Nơi đăng ký khai sinh"
-  hidden: True
-  editable: False
+  Question: "Nơi đăng ký khai sinh"
+  Group: "personal"
+  DataType: "string"
 
-QueQuanThanhNien:
+Quequanthanhnien:
   ColumnLabel: "Quê quán thanh niên"
-  hidden: True
-  editable: False
+  Question: "Quê quán thanh niên"
+  Group: "personal"
+  DataType: "string"
 
-DanToc:
+Dantoc:
   ColumnLabel: "Dân tộc"
-  hidden: True
-  editable: False
+  Question: "Dân tộc"
+  Group: "personal"
+  DataType: "DanToc"
 
-TonGiao:
+Tongiao:
   ColumnLabel: "Tôn giáo"
-  hidden: True
-  editable: False
+  Question: "Tôn giáo"
+  Group: "personal"
+  DataType: "string"
 
-QuocTich:
+Quoctich:
   ColumnLabel: "Quốc tịch"
-  hidden: True
-  editable: False
+  Question: "Quốc tịch"
+  Group: "personal"
+  DataType: "string"
 
-DCThT_SoNha:
+Thuongtrusonha:
   ColumnLabel: "Thường trú - số nhà"
-  hidden: True
-  editable: False
+  Question: "Thường trú - số nhà"
+  Group: "personal"
+  DataType: "string"
 
-DCThT_Ap:
+Thuongtruap:
   ColumnLabel: "Thường trú - ấp"
-  hidden: True
-  editable: False
+  Question: "Thường trú - ấp"
+  Group: "personal"
+  DataType: "string"
 
-DCThT_Xa:
+Thuongtruxa:
   ColumnLabel: "Thường trú - xã"
-  hidden: True
-  editable: False
+  Question: "Thường trú - xã"
+  Group: "personal"
+  DataType: "Communes"
 
-DCThT_TinhTP:
+Thuongtrutinhtp:
   ColumnLabel: "Thường trú - tỉnh/Tp"
-  hidden: True
-  editable: False
+  Question: "Thường trú - tỉnh/Tp"
+  Group: "personal"
+  DataType: "Provinces"
 
-
-DCTaT_SoNha:
+Tamtrusonha:
   ColumnLabel: "Tạm trú - số nhà"
-  hidden: True
-  editable: False
+  Question: "Tạm trú - số nhà"
+  Group: "personal"
+  DataType: "string"
 
-DCTaT_Ap:
+Tamtruap:
   ColumnLabel: "Tạm trú - ấp"
-  hidden: True
-  editable: False
+  Question: "Tạm trú - ấp"
+  Group: "personal"
+  DataType: "string"
 
-DCTaT_Xa:
+Tamtruxa:
   ColumnLabel: "Tạm trú - xã"
-  hidden: True
-  editable: False
+  Question: "Tạm trú - xã"
+  Group: "personal"
+  DataType: "Communes"
 
-DCTaT_TinhTP:
-  ColumnLabel: "Tạm trú - tỉnh/Tp"
-  hidden: True
-  editable: False
+Tamtrutinhtp:
+  ColumnLabel: "Tạm trú - tỉnh/ Tp"
+  Question: "Tạm trú - tỉnh/ Tp"
+  Group: "personal"
+  DataType: "string"
 
-ThanhPhan:
+Thanhphan:
   ColumnLabel: "Thành phần"
-  hidden: True
-  editable: False
+  Question: "Thành phần"
+  Group: "personal"
+  DataType: "ThanhPhan"
 
-BanThan:
+Banthan:
   ColumnLabel: "Bản thân"
-  hidden: True
-  editable: False
+  Question: "Bản thân"
+  Group: "personal"
+  DataType: "string"
 
-HocVan:
+Hocvan:
   ColumnLabel: "Học vấn"
-  hidden: True
-  editable: False
+  Question: "Học vấn"
+  Group: "education"
+  DataType: "HocVan"
 
-HocVanDai:
-  ColumnLabel: "Học vấn;\nChuyên môn kỹ thuật;\nĐảng (ngày kết nạp);\nĐoàn."
-  hidden: True
-  editable: False
-
-TrinhDoHocVan:
+Trinhochuyenmon:
   ColumnLabel: "Trình độ chuyên môn"
-  hidden: True
-  editable: False
+  Question: "Trình độ chuyên môn"
+  Group: "education"
+  DataType: "TrinhDoChuyenMon"
 
-ChuyenNganhDaoTao:
+Chuyennganhaotao:
   ColumnLabel: "Chuyên ngành đào tạo"
-  hidden: True
-  editable: False
+  Question: "Chuyên ngành đào tạo"
+  Group: "education"
+  DataType: "string"
 
-NgheNghiepHienNay:
+Nghenghiephiennay:
   ColumnLabel: "Nghề nghiệp hiện nay"
-  hidden: True
-  editable: False
+  Question: "Nghề nghiệp hiện nay"
+  Group: "personal"
+  DataType: "string"
 
-NoiLamViecHocTap:
+Noilamviecvahoctap:
   ColumnLabel: "Nơi làm việc và học tập"
-  hidden: True
-  editable: False
+  Question: "Nơi làm việc và học tập"
+  Group: "education"
+  DataType: "string"
 
-HoVaTenCha:
+Hotencha:
   ColumnLabel: "Họ tên cha"
-  hidden: True
-  editable: False
+  Question: "Họ tên cha"
+  Group: "father"
+  DataType: "string"
 
-NgaySinhCha:
+Changaysinh:
   ColumnLabel: "Cha - Ngày sinh"
-  hidden: True
-  editable: False
+  Question: "Cha - Ngày sinh"
+  Group: "father"
+  DataType: "number"
 
-ThangSinhCha:
-  ColumnLabel: "Cha - Tháng sinh"
-  hidden: True
-  editable: False
+Thangsinhcha:
+  ColumnLabel: "Tháng sinh Cha"
+  Question: "Tháng sinh Cha"
+  Group: "father"
+  DataType: "number"
 
-NamSinhCha:
-  ColumnLabel: "Cha - Năm sinh"
-  hidden: True
-  editable: False
+Namsinhcha:
+  ColumnLabel: "Năm sinh Cha"
+  Question: "Năm sinh Cha"
+  Group: "father"
+  DataType: "number"
 
-NgheNghiepCha:
+Chasongchet:
+  ColumnLabel: "Cha Sống/Chết"
+  Question: "Cha Sống/Chết"
+  Group: "father"
+  DataType: "SongChet"
+
+Nghenghiepcha:
   ColumnLabel: "Nghề nghiệp cha"
-  hidden: True
-  editable: False
+  Question: "Nghề nghiệp cha"
+  Group: "father"
+  DataType: "string"
 
-HoVaTenMe:
+Hotenme:
   ColumnLabel: "Họ tên mẹ"
-  hidden: True
-  editable: False
+  Question: "Họ tên mẹ"
+  Group: "mother"
+  DataType: "string"
 
-NgaySinhMe:
+Mengaysinh:
   ColumnLabel: "Mẹ - ngày sinh"
-  hidden: True
-  editable: False
+  Question: "Mẹ - ngày sinh"
+  Group: "mother"
+  DataType: "number"
 
-ThangSinhMe:
-  ColumnLabel: "Mẹ - Tháng sinh"
-  hidden: True
-  editable: False
+Thangsinhme:
+  ColumnLabel: "Tháng sinh Mẹ"
+  Question: "Tháng sinh Mẹ"
+  Group: "mother"
+  DataType: "number"
 
-NamSinhMe:
-  ColumnLabel: "Mẹ - Năm sinh"
-  hidden: True
-  editable: False
+Namsinhme:
+  ColumnLabel: "Năm sinh Mẹ"
+  Question: "Năm sinh Mẹ"
+  Group: "mother"
+  DataType: "number"
 
-NgheNghiepMe:
+Mesongchet:
+  ColumnLabel: "Mẹ Sống/Chết"
+  Question: "Mẹ Sống/Chết"
+  Group: "mother"
+  DataType: "SongChet"
+
+Nghenghiepme:
   ColumnLabel: "Nghề nghiệp mẹ"
-  hidden: True
-  editable: False
+  Question: "Nghề nghiệp mẹ"
+  Group: "mother"
+  DataType: "string"
 
-HoVaTenVo:
+Hotenvochong:
   ColumnLabel: "Họ tên vợ ( chồng )"
-  hidden: True
-  editable: False
+  Question: "Họ tên vợ ( chồng )"
+  Group: "wife"
+  DataType: "string"
 
-TongSoNguoiConTrongGD:
+Ngaysinhvochong:
+  ColumnLabel: "Ngày sinh - vợ chồng"
+  Question: "Ngày sinh - vợ chồng"
+  Group: "wife"
+  DataType: "number"
+
+Thangsinhvochong:
+  ColumnLabel: "Tháng sinh - vợ chồng"
+  Question: "Tháng sinh - vợ chồng"
+  Group: "wife"
+  DataType: "number"
+
+Namsinhvochong:
+  ColumnLabel: "Năm sinh vợ chồng"
+  Question: "Năm sinh vợ chồng"
+  Group: "wife"
+  DataType: "number"
+
+Nghenghiepcuavochong:
+  ColumnLabel: "Nghề nghiệp của - vợ chồng"
+  Question: "Nghề nghiệp của - vợ chồng"
+  Group: "wife"
+  DataType: "string"
+
+Banthanthanhnienacoconhaychua:
+  ColumnLabel: "Bản thân thanh niên đã có con hay chưa"
+  Question: "Bản thân thanh niên đã có con hay chưa"
+  Group: "personal"
+  DataType: "CoKhong"
+
+Tongcontronggiainh:
   ColumnLabel: "Tổng con trong gia đình"
-  hidden: True
-  editable: False
+  Question: "Tổng con trong gia đình"
+  Group: "personal"
+  DataType: "string"
 
-SoNguoiConTrai:
+Contrai:
   ColumnLabel: "con trai"
-  hidden: True
-  editable: False
+  Question: "con trai"
+  Group: "personal"
+  DataType: "string"
 
-SoNguoiConGai:
+Congai:
   ColumnLabel: "con \ngái"
-  hidden: True
-  editable: False
+  Question: "con \ngái"
+  Group: "personal"
+  DataType: "string"
 
-LaConThuTrongGD:
+Conthumay:
   ColumnLabel: "Con thứ mấy"
-  hidden: True
-  editable: False
+  Question: "Con thứ mấy"
+  Group: "personal"
+  DataType: "string"
 
-HocC1:
+Quequancuacha:
+  ColumnLabel: "Quê quán của Cha"
+  Question: "Quê quán của Cha"
+  Group: "father"
+  DataType: "string"
+
+Thuongtruchasonha:
+  ColumnLabel: "Thường trú Cha - số nhà"
+  Question: "Thường trú Cha - số nhà"
+  Group: "father"
+  DataType: "string"
+
+Thuongtruchaap:
+  ColumnLabel: "Thường trú Cha - ấp"
+  Question: "Thường trú Cha - ấp"
+  Group: "father"
+  DataType: "string"
+
+Thuongtruchaxa:
+  ColumnLabel: "Thường trú Cha - xã"
+  Question: "Thường trú Cha - xã"
+  Group: "father"
+  DataType: "Communes"
+
+Thuongtruchatinhtp:
+  ColumnLabel: "Thường trú Cha - tỉnh/Tp"
+  Question: "Thường trú Cha - tỉnh/Tp"
+  Group: "father"
+  DataType: "Provinces"
+
+Tamtruchasonha:
+  ColumnLabel: "Tạm trú Cha - số nhà"
+  Question: "Tạm trú Cha - số nhà"
+  Group: "father"
+  DataType: "string"
+
+Tamtruchaap:
+  ColumnLabel: "Tạm trú Cha - ấp"
+  Question: "Tạm trú Cha - ấp"
+  Group: "father"
+  DataType: "string"
+
+Tamtruchaxa:
+  ColumnLabel: "Tạm trú Cha -xã"
+  Question: "Tạm trú Cha -xã"
+  Group: "father"
+  DataType: "Communes"
+
+Tamtruchatinhtp:
+  ColumnLabel: "Tạm trú Cha - tỉnh/Tp"
+  Question: "Tạm trú Cha - tỉnh/Tp"
+  Group: "father"
+  DataType: "Provinces"
+
+Cha1tuoien5tuoi:
+  ColumnLabel: "Cha - 1 tuổi đến 5 tuổi"
+  Question: "Cha - 1 tuổi đến 5 tuổi"
+  Group: "father"
+  DataType: "string"
+
+Cha5tuoientruochethon:
+  ColumnLabel: "Cha - 5 tuổi đến trước hết hôn"
+  Question: "Cha - 5 tuổi đến trước hết hôn"
+  Group: "father"
+  DataType: "string"
+
+Chasaukethonennay:
+  ColumnLabel: "Cha - Sau kết hôn đến nay"
+  Question: "Cha - Sau kết hôn đến nay"
+  Group: "father"
+  DataType: "string"
+
+Hiennaychalamgitaiau:
+  ColumnLabel: "Hiện nay cha làm gì? Tại đâu?"
+  Question: "Hiện nay cha làm gì? Tại đâu?"
+  Group: "father"
+  DataType: "string"
+
+Quequancuame:
+  ColumnLabel: "Quê quán của mẹ"
+  Question: "Quê quán của mẹ"
+  Group: "mother"
+  DataType: "string"
+
+Thuongtrumesonha:
+  ColumnLabel: "Thường trú Mẹ - số nhà"
+  Question: "Thường trú Mẹ - số nhà"
+  Group: "mother"
+  DataType: "string"
+
+Thuongtrumeap:
+  ColumnLabel: "Thường trú Mẹ - ấp"
+  Question: "Thường trú Mẹ - ấp"
+  Group: "mother"
+  DataType: "string"
+
+Thuongtrumexa:
+  ColumnLabel: "Thường trú Mẹ - xã"
+  Question: "Thường trú Mẹ - xã"
+  Group: "mother"
+  DataType: "Communes"
+
+Thuongtrumetinhtp:
+  ColumnLabel: "Thường trú Mẹ - tỉnh/Tp"
+  Question: "Thường trú Mẹ - tỉnh/Tp"
+  Group: "mother"
+  DataType: "Provinces"
+
+Tamtrumesonha:
+  ColumnLabel: "Tạm trú Mẹ - số nhà"
+  Question: "Tạm trú Mẹ - số nhà"
+  Group: "mother"
+  DataType: "string"
+
+Tamtrumeap:
+  ColumnLabel: "Tạm trú Mẹ - ấp"
+  Question: "Tạm trú Mẹ - ấp"
+  Group: "mother"
+  DataType: "string"
+
+Tamtrumexa:
+  ColumnLabel: "Tạm trú Mẹ - xã"
+  Question: "Tạm trú Mẹ - xã"
+  Group: "mother"
+  DataType: "Communes"
+
+Tamtrumetinhtp:
+  ColumnLabel: "Tạm trú Mẹ - tỉnh/Tp"
+  Question: "Tạm trú Mẹ - tỉnh/Tp"
+  Group: "mother"
+  DataType: "Provinces"
+
+Me1tuoien5tuoi:
+  ColumnLabel: "Mẹ  - 1 tuổi đến 5 tuổi"
+  Question: "Mẹ  - 1 tuổi đến 5 tuổi"
+  Group: "mother"
+  DataType: "string"
+
+Me5tuoientruochethon:
+  ColumnLabel: "Mẹ - 5 tuổi đến trước hết hôn"
+  Question: "Mẹ - 5 tuổi đến trước hết hôn"
+  Group: "mother"
+  DataType: "string"
+
+Mesaukethonennay:
+  ColumnLabel: "Mẹ - Sau kết hôn đến nay"
+  Question: "Mẹ - Sau kết hôn đến nay"
+  Group: "mother"
+  DataType: "string"
+
+Hiennaymelamgitaiau:
+  ColumnLabel: "Hiện nay mẹ làm gì? Tại đâu?"
+  Question: "Hiện nay mẹ làm gì? Tại đâu?"
+  Group: "mother"
+  DataType: "string"
+
+Hovatenace:
+  ColumnLabel: "Họ và tên ACE"
+  Question: "Họ và tên ACE"
+  Group: "sibling"
+  DataType: "string"
+
+Ngaythangnamsinhcuaace:
+  ColumnLabel: "Ngày tháng năm sinh của ace"
+  Question: "Ngày tháng năm sinh của ace"
+  Group: "sibling"
+  DataType: "number"
+
+Nghenghiepace:
+  ColumnLabel: "Nghề nghiệp ace"
+  Question: "Nghề nghiệp ace"
+  Group: "sibling"
+  DataType: "string"
+
+Vochongace:
+  ColumnLabel: "Vợ chồng ace"
+  Question: "Vợ chồng ace"
+  Group: "wife"
+  DataType: "string"
+
+C1:
   ColumnLabel: "C1"
-  hidden: True
-  editable: False
+  Question: "C1"
+  Group: "education"
+  DataType: "string"
 
-HocC1PhuongXa:
+C1phuongxa:
   ColumnLabel: "C1 - Phường/Xã"
-  hidden: True
-  editable: False
+  Question: "C1 - Phường/Xã"
+  Group: "education"
+  DataType: "Communes"
 
-HocC1TinhTP:
+C1tinhtp:
   ColumnLabel: "C1 - tỉnh/Tp"
-  hidden: True
-  editable: False
+  Question: "C1 - tỉnh/Tp"
+  Group: "education"
+  DataType: "Provinces"
 
-HocC1Tu:
+C1namnhaphoc:
   ColumnLabel: "C1 - Năm nhập học "
-  hidden: True
-  editable: False
+  Question: "C1 - Năm nhập học "
+  Group: "education"
+  DataType: "number"
 
-HocC1Den:
+C1namtotnghiep:
   ColumnLabel: "C1 - Năm tốt nghiệp"
-  hidden: True
-  editable: False
+  Question: "C1 - Năm tốt nghiệp"
+  Group: "education"
+  DataType: "number"
 
-HocC2:
+C2:
   ColumnLabel: "C2"
-  hidden: True
-  editable: False
+  Question: "C2"
+  Group: "education"
+  DataType: "string"
 
-HocC2PhuongXa:
+C2phuongxa:
   ColumnLabel: "C2 - Phường/Xã"
-  hidden: True
-  editable: False
+  Question: "C2 - Phường/Xã"
+  Group: "education"
+  DataType: "Communes"
 
-HocC2TinhTP:
+C2tinhtp:
   ColumnLabel: "C2 - tỉnh/Tp"
-  hidden: True
-  editable: False
+  Question: "C2 - tỉnh/Tp"
+  Group: "education"
+  DataType: "Provinces"
 
-HocC2Tu:
+C2namnhaphoc:
   ColumnLabel: "C2 - Năm nhập học "
-  hidden: True
-  editable: False
+  Question: "C2 - Năm nhập học "
+  Group: "education"
+  DataType: "number"
 
-HocC2Den:
+C2namtotnghiep:
   ColumnLabel: "C2 - Năm tốt nghiệp"
-  hidden: True
-  editable: False
+  Question: "C2 - Năm tốt nghiệp"
+  Group: "education"
+  DataType: "number"
 
-HocC3:
+C3:
   ColumnLabel: "C3"
-  hidden: True
-  editable: False
+  Question: "C3"
+  Group: "education"
+  DataType: "string"
 
-HocC3PhuongXa:
+C3phuongxa:
   ColumnLabel: "C3 - Phường/Xã"
-  hidden: True
-  editable: False
+  Question: "C3 - Phường/Xã"
+  Group: "education"
+  DataType: "Communes"
 
-HocC3TinhTP:
+C3tinhtp:
   ColumnLabel: "C3 - tỉnh/Tp"
-  hidden: True
-  editable: False
+  Question: "C3 - tỉnh/Tp"
+  Group: "education"
+  DataType: "Provinces"
 
-HocC3Tu:
+C3namnhaphoc:
   ColumnLabel: "C3 - Năm nhập học "
-  hidden: True
-  editable: False
+  Question: "C3 - Năm nhập học "
+  Group: "education"
+  DataType: "number"
 
-HocC3Den:
+C3namtotnghiep:
   ColumnLabel: "C3 - Năm tốt nghiệp"
-  hidden: True
-  editable: False
+  Question: "C3 - Năm tốt nghiệp"
+  Group: "education"
+  DataType: "number"
 
-ChaTruoc30_04_1975:
-  ColumnLabel: "Cha trước 30/04/1975"
-  hidden: True
-  editable: False
+18nay:
+  ColumnLabel: "18 - nay"
+  Question: "18 - nay"
+  Group: "personal"
+  DataType: "string"
 
-ChaSau30_04_1975:
-  ColumnLabel: "Cha sau 30/04/1975"
-  hidden: True
-  editable: False
+Hiennay:
+  ColumnLabel: "Hiện nay"
+  Question: "Hiện nay"
+  Group: "personal"
+  DataType: "string"
 
-MeTruoc30_04_1975:
-  ColumnLabel: "Mẹ trước 30/04/1975"
-  hidden: True
-  editable: False
+Soienthoaithanhnien:
+  ColumnLabel: "Số điện thoại thanh niên"
+  Question: "Số điện thoại thanh niên"
+  Group: "personal"
+  DataType: "string"
 
-MeSau30_04_1975:
-  ColumnLabel: "Mẹ sau 30/04/1975"
-  hidden: True
-  editable: False
+Soienthoaicha:
+  ColumnLabel: "Số điện thoại cha"
+  Question: "Số điện thoại cha"
+  Group: "father"
+  DataType: "string"
+
+Soienthoaime:
+  ColumnLabel: "Số điện thoại mẹ"
+  Question: "Số điện thoại mẹ"
+  Group: "mother"
+  DataType: "string"
+
+Soienthoainguoithankhac:
+  ColumnLabel: "Số điện thoại người thân khác"
+  Question: "Số điện thoại người thân khác"
+  Group: "personal"
+  DataType: "string"

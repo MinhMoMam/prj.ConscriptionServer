@@ -1,0 +1,13 @@
+Sheet: "DATA BASE"
+
+columnList:
+{% for column in columns -%}
+  - {{ column.Name }}
+{% endfor %}
+{% for column in columns %}
+{{column.Name}}:
+  ColumnLabel: "{{ column.Title }}"
+  Question: "{{ column.Question }}"
+  Group: "{{ column.Group }}"
+  DataType: "{{ column.DataType }}"
+{% endfor %}
