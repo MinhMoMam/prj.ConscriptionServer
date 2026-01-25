@@ -7,16 +7,16 @@
 <body>
     <h1>Tra cứu thông tin nghĩa vụ quân sự</h1>
     <div class="container"></div>
-        <form autocomplete="off" action="/ObjectSearching">
+        <form autocomplete="on" action="/ObjectSearching">
             
             <div class="autocomplete" style="width:250px;">
-                <input id="Name" type="text" name="Name" placeholder="Tên thanh niên">
+                <input id="Hovaten" type="text" name="Hovaten" placeholder="Tên thanh niên">
             </div>
             <div class="autocomplete" style="width:150px;">
-                <input id="YearOfBirth" type="text" name="YearOfBirth" placeholder="Năm sinh">
+                <input id="Namsinh" type="text" name="Namsinh" placeholder="Năm sinh">
             </div>
             <div class="autocomplete" style="width:150px;">
-                <input id="Commune" type="text" name="Commune" placeholder="Ấp">
+                <input id="Thuongtruap" type="text" name="Thuongtruap" placeholder="Ấp">
             </div>
             <input type="submit">
             
@@ -33,13 +33,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for obj in ObjectList %}
+            {% for obj in foundObj %}
             <tr>
-                <td width = 250px>{{ obj.name }}</td>
-                <td width = 150px align="center">{{ obj.yearOfBirth }}</td>
-                <td width = 150px align="center">{{ obj.commune }}</td>
+                <td width = 250px>{{ obj['Hovaten'] }}</td>
+                <td width = 150px align="center">{{ obj['Namsinh'] }}</td>
+                <td width = 150px align="center">{{ obj['Thuongtruap'] }}</td>
                 <td  align="center">
-                    <a href="/details?Name={{ obj.name }}&YearOfBirth={{ obj.yearOfBirth }}&Commune={{ obj.commune }}">Xem thêm</a>
+                    <a href="/details?Hovaten={{ obj['Hovaten'] }}&Namsinh={{ obj['Namsinh'] }}&Thuongtruap={{ obj['Thuongtruap'] }}">Xem thêm</a>
                 </td>
             </tr>
             {% endfor %}
@@ -49,22 +49,22 @@
     <!-- Link external JS -->
     <script src="/static/rootScript.js"></script>
     <script>
-        const NameList = {{ NameList | tojson }};
+        const NameList = {{ Hovaten | tojson }};
     </script>
     <script>
-        const yearOfBirthList = {{ YearOfBirthList | tojson }};
+        const yearOfBirthList = {{ Namsinh | tojson }};
     </script>
     <script>
-        const CommuneList = {{ CommuneList | tojson }};
+        const CommuneList = {{ Thuongtruap | tojson }};
     </script>
     <script>
-    autocomplete(document.getElementById("Name"), NameList);
+    autocomplete(document.getElementById("Hovaten"), NameList);
     </script>
     <script>
-    autocomplete(document.getElementById("YearOfBirth"), yearOfBirthList);
+    autocomplete(document.getElementById("Namsinh"), yearOfBirthList);
     </script>
     <script>
-    autocomplete(document.getElementById("Commune"), CommuneList);
+    autocomplete(document.getElementById("Thuongtruap"), CommuneList);
     </script>
 </body>
 </html>

@@ -7,7 +7,9 @@ from typing import Dict, Any
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
 settingFile = "setting/labelConfig.yaml"
-dataCon = dc.dataContainer(excelFile,settingFile)
+dataKey = ["Thuongtruap","Namsinh","Hovaten"]
+searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
+dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
 
 # Mount static folder for CSS/JS/images
 templates = Jinja2Templates(directory="templates")
@@ -23,14 +25,16 @@ def read_root(request: Request):
     return templates.TemplateResponse("root.html", content)
 
 @app.get("/ObjectSearching", response_class=HTMLResponse)
-def ObjectSearching(request: Request,Name: str="",YearOfBirth: str="",Commune: str=""):
-    content = dataCon.returnSearchResult(Name,YearOfBirth,Commune);
+def ObjectSearching(request: Request):
+    params: dict = dict(request.query_params)
+    content = dataCon.returnSearchResult(params)
     content["request"] = request
-    return templates.TemplateResponse("root.html", content)
+    return templates.TemplateResponse("root.html", content) 
 
 @app.get("/details", response_class=HTMLResponse)
-def detailsView(request: Request,Name: str="",YearOfBirth: str="",Commune: str=""):
-    content = dataCon.retObjDetailInformation(Name,YearOfBirth,Commune);
+def detailsView(request: Request):
+    params: dict = dict(request.query_params)
+    content = dataCon.retObjDetailInformation(params)
     content["request"] = request
     return templates.TemplateResponse("detailInfor.html", content)
 
