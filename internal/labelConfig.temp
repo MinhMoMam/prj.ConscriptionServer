@@ -9,5 +9,6 @@ columnList:
   ColumnLabel: "{{ column.Title }}"
   Question: "{{ column.Question }}"
   Group: "{{ column.Group }}"
+  Object: "{{ column.Object }}"
   DataType: "{{ column.DataType }}"
 {% endfor %}

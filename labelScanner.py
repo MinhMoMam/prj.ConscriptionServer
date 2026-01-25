@@ -7,8 +7,19 @@ class columnPaser:
         self.Name = self.createName(columnTitle)
         self.Title = columnTitle.replace("\n", "\\n")
         self.Question = self.createQuestion(columnTitle)
+        self.Object = self.createObject(columnTitle)
         self.Group = self.createGroup(columnTitle)
         self.DataType = self.createDataType(columnTitle)
+
+    def createGroup(self,columnTitle):
+        column = columnTitle.upper()
+        if "NGÀY SINH" in column or "THÁNG SINH" in column or "NĂM SINH" in column:
+            return "date"
+        if "HỌC" in column or "ĐÀO TẠO" in column or "TỐT NGHIỆP" in column or "TRÌNH ĐỘ" in column or "C1" in column or "C2" in column or "C3" in column:
+            return "education"
+        if "XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ" in column:
+            return "address"
+        return "other"
 
     def createDataType(self,columnTitle):
         column = columnTitle.upper()
@@ -32,13 +43,11 @@ class columnPaser:
             return "ThanhPhan"
         if "CÓ" in column and ("CHƯA" in column or "KHÔNG" in column):
             return "CoKhong"
-        if "NGÀY" in column or "THÁNG" in column or "NĂM" in column:
-            return "number"
         if "MÃ 4DS" in column or "NỘI DUNG XẾP LOẠI" in column:
             return "hiden"
         return "string"
 
-    def createGroup(self,columnTitle):
+    def createObject(self,columnTitle):
         column = columnTitle.upper()
         if "CHA" in column:
             return "father"
@@ -48,8 +57,6 @@ class columnPaser:
             return "wife"
         if "ACE" in column:
             return "sibling"
-        if "HỌC" in column or "ĐÀO TẠO" in column or "TỐT NGHIỆP" in column or "TRÌNH ĐỘ" in column or "C1" in column or "C2" in column or "C3" in column:
-            return "education"
         else:
             return "personal"
 

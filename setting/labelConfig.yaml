@@ -107,605 +107,706 @@ columnList:
 Ma4ds:
   ColumnLabel: "Mã 4DS"
   Question: "Mã 4DS"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "hiden"
 
 Noidungxeploai:
   ColumnLabel: "Nội dung xếp loại"
   Question: "Nội dung xếp loại"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "hiden"
 
 Hovaten:
   ColumnLabel: "Họ và tên"
   Question: "Họ và tên"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Ngaysinh:
   ColumnLabel: "Ngày sinh"
   Question: "Ngày sinh"
-  Group: "personal"
-  DataType: "number"
+  Group: "date"
+  Object: "personal"
+  DataType: "string"
 
 Thangsinh:
   ColumnLabel: "Tháng sinh"
   Question: "Tháng sinh"
-  Group: "personal"
-  DataType: "number"
+  Group: "date"
+  Object: "personal"
+  DataType: "string"
 
 Namsinh:
   ColumnLabel: "Năm sinh"
   Question: "Năm sinh"
-  Group: "personal"
-  DataType: "number"
+  Group: "date"
+  Object: "personal"
+  DataType: "string"
 
 Cccd:
   ColumnLabel: "CCCD"
   Question: "CCCD"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Ngaycap:
   ColumnLabel: "Ngày cấp"
   Question: "Ngày cấp"
-  Group: "personal"
-  DataType: "number"
+  Group: "address"
+  Object: "personal"
+  DataType: "string"
 
 Noiangkykhaisinh:
   ColumnLabel: "Nơi đăng ký khai sinh"
   Question: "Nơi đăng ký khai sinh"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Quequanthanhnien:
   ColumnLabel: "Quê quán thanh niên"
   Question: "Quê quán thanh niên"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Dantoc:
   ColumnLabel: "Dân tộc"
   Question: "Dân tộc"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "DanToc"
 
 Tongiao:
   ColumnLabel: "Tôn giáo"
   Question: "Tôn giáo"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Quoctich:
   ColumnLabel: "Quốc tịch"
   Question: "Quốc tịch"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Thuongtrusonha:
   ColumnLabel: "Thường trú - số nhà"
   Question: "Thường trú - số nhà"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "string"
 
 Thuongtruap:
   ColumnLabel: "Thường trú - ấp"
   Question: "Thường trú - ấp"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "string"
 
 Thuongtruxa:
   ColumnLabel: "Thường trú - xã"
   Question: "Thường trú - xã"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "Communes"
 
 Thuongtrutinhtp:
   ColumnLabel: "Thường trú - tỉnh/Tp"
   Question: "Thường trú - tỉnh/Tp"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "Provinces"
 
 Tamtrusonha:
   ColumnLabel: "Tạm trú - số nhà"
   Question: "Tạm trú - số nhà"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "string"
 
 Tamtruap:
   ColumnLabel: "Tạm trú - ấp"
   Question: "Tạm trú - ấp"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "string"
 
 Tamtruxa:
   ColumnLabel: "Tạm trú - xã"
   Question: "Tạm trú - xã"
-  Group: "personal"
+  Group: "address"
+  Object: "personal"
   DataType: "Communes"
 
 Tamtrutinhtp:
   ColumnLabel: "Tạm trú - tỉnh/ Tp"
   Question: "Tạm trú - tỉnh/ Tp"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Thanhphan:
   ColumnLabel: "Thành phần"
   Question: "Thành phần"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "ThanhPhan"
 
 Banthan:
   ColumnLabel: "Bản thân"
   Question: "Bản thân"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Hocvan:
   ColumnLabel: "Học vấn"
   Question: "Học vấn"
   Group: "education"
+  Object: "personal"
   DataType: "HocVan"
 
 Trinhochuyenmon:
   ColumnLabel: "Trình độ chuyên môn"
   Question: "Trình độ chuyên môn"
   Group: "education"
+  Object: "personal"
   DataType: "TrinhDoChuyenMon"
 
 Chuyennganhaotao:
   ColumnLabel: "Chuyên ngành đào tạo"
   Question: "Chuyên ngành đào tạo"
   Group: "education"
+  Object: "personal"
   DataType: "string"
 
 Nghenghiephiennay:
   ColumnLabel: "Nghề nghiệp hiện nay"
   Question: "Nghề nghiệp hiện nay"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Noilamviecvahoctap:
   ColumnLabel: "Nơi làm việc và học tập"
   Question: "Nơi làm việc và học tập"
   Group: "education"
+  Object: "personal"
   DataType: "string"
 
 Hotencha:
   ColumnLabel: "Họ tên cha"
   Question: "Họ tên cha"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Changaysinh:
   ColumnLabel: "Cha - Ngày sinh"
   Question: "Cha - Ngày sinh"
-  Group: "father"
-  DataType: "number"
+  Group: "date"
+  Object: "father"
+  DataType: "string"
 
 Thangsinhcha:
   ColumnLabel: "Tháng sinh Cha"
   Question: "Tháng sinh Cha"
-  Group: "father"
-  DataType: "number"
+  Group: "date"
+  Object: "father"
+  DataType: "string"
 
 Namsinhcha:
   ColumnLabel: "Năm sinh Cha"
   Question: "Năm sinh Cha"
-  Group: "father"
-  DataType: "number"
+  Group: "date"
+  Object: "father"
+  DataType: "string"
 
 Chasongchet:
   ColumnLabel: "Cha Sống/Chết"
   Question: "Cha Sống/Chết"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "SongChet"
 
 Nghenghiepcha:
   ColumnLabel: "Nghề nghiệp cha"
   Question: "Nghề nghiệp cha"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Hotenme:
   ColumnLabel: "Họ tên mẹ"
   Question: "Họ tên mẹ"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Mengaysinh:
   ColumnLabel: "Mẹ - ngày sinh"
   Question: "Mẹ - ngày sinh"
-  Group: "mother"
-  DataType: "number"
+  Group: "date"
+  Object: "mother"
+  DataType: "string"
 
 Thangsinhme:
   ColumnLabel: "Tháng sinh Mẹ"
   Question: "Tháng sinh Mẹ"
-  Group: "mother"
-  DataType: "number"
+  Group: "date"
+  Object: "mother"
+  DataType: "string"
 
 Namsinhme:
   ColumnLabel: "Năm sinh Mẹ"
   Question: "Năm sinh Mẹ"
-  Group: "mother"
-  DataType: "number"
+  Group: "date"
+  Object: "mother"
+  DataType: "string"
 
 Mesongchet:
   ColumnLabel: "Mẹ Sống/Chết"
   Question: "Mẹ Sống/Chết"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "SongChet"
 
 Nghenghiepme:
   ColumnLabel: "Nghề nghiệp mẹ"
   Question: "Nghề nghiệp mẹ"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Hotenvochong:
   ColumnLabel: "Họ tên vợ ( chồng )"
   Question: "Họ tên vợ ( chồng )"
-  Group: "wife"
+  Group: "other"
+  Object: "wife"
   DataType: "string"
 
 Ngaysinhvochong:
   ColumnLabel: "Ngày sinh - vợ chồng"
   Question: "Ngày sinh - vợ chồng"
-  Group: "wife"
-  DataType: "number"
+  Group: "date"
+  Object: "wife"
+  DataType: "string"
 
 Thangsinhvochong:
   ColumnLabel: "Tháng sinh - vợ chồng"
   Question: "Tháng sinh - vợ chồng"
-  Group: "wife"
-  DataType: "number"
+  Group: "date"
+  Object: "wife"
+  DataType: "string"
 
 Namsinhvochong:
   ColumnLabel: "Năm sinh vợ chồng"
   Question: "Năm sinh vợ chồng"
-  Group: "wife"
-  DataType: "number"
+  Group: "date"
+  Object: "wife"
+  DataType: "string"
 
 Nghenghiepcuavochong:
   ColumnLabel: "Nghề nghiệp của - vợ chồng"
   Question: "Nghề nghiệp của - vợ chồng"
-  Group: "wife"
+  Group: "other"
+  Object: "wife"
   DataType: "string"
 
 Banthanthanhnienacoconhaychua:
   ColumnLabel: "Bản thân thanh niên đã có con hay chưa"
   Question: "Bản thân thanh niên đã có con hay chưa"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "CoKhong"
 
 Tongcontronggiainh:
   ColumnLabel: "Tổng con trong gia đình"
   Question: "Tổng con trong gia đình"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Contrai:
   ColumnLabel: "con trai"
   Question: "con trai"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Congai:
   ColumnLabel: "con \ngái"
   Question: "con \ngái"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Conthumay:
   ColumnLabel: "Con thứ mấy"
   Question: "Con thứ mấy"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Quequancuacha:
   ColumnLabel: "Quê quán của Cha"
   Question: "Quê quán của Cha"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Thuongtruchasonha:
   ColumnLabel: "Thường trú Cha - số nhà"
   Question: "Thường trú Cha - số nhà"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "string"
 
 Thuongtruchaap:
   ColumnLabel: "Thường trú Cha - ấp"
   Question: "Thường trú Cha - ấp"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "string"
 
 Thuongtruchaxa:
   ColumnLabel: "Thường trú Cha - xã"
   Question: "Thường trú Cha - xã"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "Communes"
 
 Thuongtruchatinhtp:
   ColumnLabel: "Thường trú Cha - tỉnh/Tp"
   Question: "Thường trú Cha - tỉnh/Tp"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "Provinces"
 
 Tamtruchasonha:
   ColumnLabel: "Tạm trú Cha - số nhà"
   Question: "Tạm trú Cha - số nhà"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "string"
 
 Tamtruchaap:
   ColumnLabel: "Tạm trú Cha - ấp"
   Question: "Tạm trú Cha - ấp"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "string"
 
 Tamtruchaxa:
   ColumnLabel: "Tạm trú Cha -xã"
   Question: "Tạm trú Cha -xã"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "Communes"
 
 Tamtruchatinhtp:
   ColumnLabel: "Tạm trú Cha - tỉnh/Tp"
   Question: "Tạm trú Cha - tỉnh/Tp"
-  Group: "father"
+  Group: "address"
+  Object: "father"
   DataType: "Provinces"
 
 Cha1tuoien5tuoi:
   ColumnLabel: "Cha - 1 tuổi đến 5 tuổi"
   Question: "Cha - 1 tuổi đến 5 tuổi"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Cha5tuoientruochethon:
   ColumnLabel: "Cha - 5 tuổi đến trước hết hôn"
   Question: "Cha - 5 tuổi đến trước hết hôn"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Chasaukethonennay:
   ColumnLabel: "Cha - Sau kết hôn đến nay"
   Question: "Cha - Sau kết hôn đến nay"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Hiennaychalamgitaiau:
   ColumnLabel: "Hiện nay cha làm gì? Tại đâu?"
   Question: "Hiện nay cha làm gì? Tại đâu?"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Quequancuame:
   ColumnLabel: "Quê quán của mẹ"
   Question: "Quê quán của mẹ"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Thuongtrumesonha:
   ColumnLabel: "Thường trú Mẹ - số nhà"
   Question: "Thường trú Mẹ - số nhà"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "string"
 
 Thuongtrumeap:
   ColumnLabel: "Thường trú Mẹ - ấp"
   Question: "Thường trú Mẹ - ấp"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "string"
 
 Thuongtrumexa:
   ColumnLabel: "Thường trú Mẹ - xã"
   Question: "Thường trú Mẹ - xã"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "Communes"
 
 Thuongtrumetinhtp:
   ColumnLabel: "Thường trú Mẹ - tỉnh/Tp"
   Question: "Thường trú Mẹ - tỉnh/Tp"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "Provinces"
 
 Tamtrumesonha:
   ColumnLabel: "Tạm trú Mẹ - số nhà"
   Question: "Tạm trú Mẹ - số nhà"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "string"
 
 Tamtrumeap:
   ColumnLabel: "Tạm trú Mẹ - ấp"
   Question: "Tạm trú Mẹ - ấp"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "string"
 
 Tamtrumexa:
   ColumnLabel: "Tạm trú Mẹ - xã"
   Question: "Tạm trú Mẹ - xã"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "Communes"
 
 Tamtrumetinhtp:
   ColumnLabel: "Tạm trú Mẹ - tỉnh/Tp"
   Question: "Tạm trú Mẹ - tỉnh/Tp"
-  Group: "mother"
+  Group: "address"
+  Object: "mother"
   DataType: "Provinces"
 
 Me1tuoien5tuoi:
   ColumnLabel: "Mẹ  - 1 tuổi đến 5 tuổi"
   Question: "Mẹ  - 1 tuổi đến 5 tuổi"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Me5tuoientruochethon:
   ColumnLabel: "Mẹ - 5 tuổi đến trước hết hôn"
   Question: "Mẹ - 5 tuổi đến trước hết hôn"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Mesaukethonennay:
   ColumnLabel: "Mẹ - Sau kết hôn đến nay"
   Question: "Mẹ - Sau kết hôn đến nay"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Hiennaymelamgitaiau:
   ColumnLabel: "Hiện nay mẹ làm gì? Tại đâu?"
   Question: "Hiện nay mẹ làm gì? Tại đâu?"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Hovatenace:
   ColumnLabel: "Họ và tên ACE"
   Question: "Họ và tên ACE"
-  Group: "sibling"
+  Group: "other"
+  Object: "sibling"
   DataType: "string"
 
 Ngaythangnamsinhcuaace:
   ColumnLabel: "Ngày tháng năm sinh của ace"
   Question: "Ngày tháng năm sinh của ace"
-  Group: "sibling"
-  DataType: "number"
+  Group: "date"
+  Object: "sibling"
+  DataType: "string"
 
 Nghenghiepace:
   ColumnLabel: "Nghề nghiệp ace"
   Question: "Nghề nghiệp ace"
-  Group: "sibling"
+  Group: "other"
+  Object: "sibling"
   DataType: "string"
 
 Vochongace:
   ColumnLabel: "Vợ chồng ace"
   Question: "Vợ chồng ace"
-  Group: "wife"
+  Group: "other"
+  Object: "wife"
   DataType: "string"
 
 C1:
   ColumnLabel: "C1"
   Question: "C1"
   Group: "education"
+  Object: "personal"
   DataType: "string"
 
 C1phuongxa:
   ColumnLabel: "C1 - Phường/Xã"
   Question: "C1 - Phường/Xã"
   Group: "education"
+  Object: "personal"
   DataType: "Communes"
 
 C1tinhtp:
   ColumnLabel: "C1 - tỉnh/Tp"
   Question: "C1 - tỉnh/Tp"
   Group: "education"
+  Object: "personal"
   DataType: "Provinces"
 
 C1namnhaphoc:
   ColumnLabel: "C1 - Năm nhập học "
   Question: "C1 - Năm nhập học "
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 C1namtotnghiep:
   ColumnLabel: "C1 - Năm tốt nghiệp"
   Question: "C1 - Năm tốt nghiệp"
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 C2:
   ColumnLabel: "C2"
   Question: "C2"
   Group: "education"
+  Object: "personal"
   DataType: "string"
 
 C2phuongxa:
   ColumnLabel: "C2 - Phường/Xã"
   Question: "C2 - Phường/Xã"
   Group: "education"
+  Object: "personal"
   DataType: "Communes"
 
 C2tinhtp:
   ColumnLabel: "C2 - tỉnh/Tp"
   Question: "C2 - tỉnh/Tp"
   Group: "education"
+  Object: "personal"
   DataType: "Provinces"
 
 C2namnhaphoc:
   ColumnLabel: "C2 - Năm nhập học "
   Question: "C2 - Năm nhập học "
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 C2namtotnghiep:
   ColumnLabel: "C2 - Năm tốt nghiệp"
   Question: "C2 - Năm tốt nghiệp"
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 C3:
   ColumnLabel: "C3"
   Question: "C3"
   Group: "education"
+  Object: "personal"
   DataType: "string"
 
 C3phuongxa:
   ColumnLabel: "C3 - Phường/Xã"
   Question: "C3 - Phường/Xã"
   Group: "education"
+  Object: "personal"
   DataType: "Communes"
 
 C3tinhtp:
   ColumnLabel: "C3 - tỉnh/Tp"
   Question: "C3 - tỉnh/Tp"
   Group: "education"
+  Object: "personal"
   DataType: "Provinces"
 
 C3namnhaphoc:
   ColumnLabel: "C3 - Năm nhập học "
   Question: "C3 - Năm nhập học "
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 C3namtotnghiep:
   ColumnLabel: "C3 - Năm tốt nghiệp"
   Question: "C3 - Năm tốt nghiệp"
   Group: "education"
-  DataType: "number"
+  Object: "personal"
+  DataType: "string"
 
 18nay:
   ColumnLabel: "18 - nay"
   Question: "18 - nay"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Hiennay:
   ColumnLabel: "Hiện nay"
   Question: "Hiện nay"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Soienthoaithanhnien:
   ColumnLabel: "Số điện thoại thanh niên"
   Question: "Số điện thoại thanh niên"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
 
 Soienthoaicha:
   ColumnLabel: "Số điện thoại cha"
   Question: "Số điện thoại cha"
-  Group: "father"
+  Group: "other"
+  Object: "father"
   DataType: "string"
 
 Soienthoaime:
   ColumnLabel: "Số điện thoại mẹ"
   Question: "Số điện thoại mẹ"
-  Group: "mother"
+  Group: "other"
+  Object: "mother"
   DataType: "string"
 
 Soienthoainguoithankhac:
   ColumnLabel: "Số điện thoại người thân khác"
   Question: "Số điện thoại người thân khác"
-  Group: "personal"
+  Group: "other"
+  Object: "personal"
   DataType: "string"
