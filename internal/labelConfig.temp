@@ -11,4 +11,5 @@ columnList:
   Group: "{{ column.Group }}"
   Object: "{{ column.Object }}"
   DataType: "{{ column.DataType }}"
+  PlaceHolder: ""
 {% endfor %}

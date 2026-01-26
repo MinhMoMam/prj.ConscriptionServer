@@ -78,9 +78,11 @@ class dataContainer:
             if value != "":
                 if self.config[key]["DataType"] == "number":
                     value = int(value)
+                    target_dtype = "Int64"
                 else:
                     value = str(value)
-                retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]] == value]
+                    target_dtype = "string"
+                retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == value]
                 emptySearchParam = False
         if not emptySearchParam:
             for index, row in retDataFrame.iterrows():
@@ -108,7 +110,13 @@ class dataContainer:
             return {}
         else:
             for column in self.config["columnList"]:
-                retDict[column] = retDataFrame.iloc[0][self.config[column]["ColumnLabel"]]
+                if self.config[column]["Group"] == "hiden":
+                    continue
+                value = retDataFrame.iloc[0][self.config[column]["ColumnLabel"]]
+                if str(value) == "nan" or str(value) == "<NA>":
+                    retDict[column] = ""
+                else:
+                    retDict[column] = value
         FinalRetDict = {}
         FinalRetDict["obj"] = retDict
         FinalRetDict["config"] = self.config

@@ -19,6 +19,8 @@ class columnPaser:
             return "education"
         if "XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ" in column:
             return "address"
+        if "MÃ 4DS" in column or "NỘI DUNG XẾP LOẠI" in column:
+            return "hiden"
         return "other"
 
     def createDataType(self,columnTitle):
@@ -43,8 +45,6 @@ class columnPaser:
             return "ThanhPhan"
         if "CÓ" in column and ("CHƯA" in column or "KHÔNG" in column):
             return "CoKhong"
-        if "MÃ 4DS" in column or "NỘI DUNG XẾP LOẠI" in column:
-            return "hiden"
         return "string"
 
     def createObject(self,columnTitle):
@@ -53,10 +53,10 @@ class columnPaser:
             return "father"
         if "MẸ" in column: 
             return "mother"
-        if "VỢ" in column or "CHỒNG" in column:
-            return "wife"
         if "ACE" in column:
             return "sibling"
+        if "VỢ" in column or "CHỒNG" in column:
+            return "wife"
         else:
             return "personal"
 
@@ -71,7 +71,7 @@ class columnPaser:
 
 databasePath = "data/CƠ CẤU HỆ THỐNG.xlsx"
 templateFile = "internal/labelConfig.temp"
-outputFile = "setting/labelConfig.yaml"
+outputFile = "setting/labelConfig_temp.yaml"
 headRow = 1
 
 

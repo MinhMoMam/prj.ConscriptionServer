@@ -79,10 +79,13 @@
 
         <div class="section-title">I. SƠ YẾU LÝ LỊCH</div>
         {% for key in config["columnList"] %}
+        {% if config[key]["Group"] != "hiden"%}
         <div class="info-item">{{ config[key]['Question'].replace("\n","") }}: 
             {% set columnLable = config[key]['ColumnLabel'] %}
-            <input type="text" name="{{ key }}" value="{{ obj[key] }}" class="placeholder-input line-full" required>
+            {% set placeHodler = config[key]['PlaceHolder'] %}
+            <input type="text" name="{{ key }}" value="{{ obj[key] }}" class="placeholder-input line-full" placeholder="{{ placeHodler }}" required>
         </div>
+        {% endif %}
         {% endfor %}
         <p style="text-align: center;">
             <button id="myButton" type="submit">Gửi dữ liệu</button>
