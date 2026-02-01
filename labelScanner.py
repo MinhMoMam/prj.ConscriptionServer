@@ -31,31 +31,32 @@ class columnPaser:
 
     def createDataType(self,columnTitle):
         column = columnTitle.upper()
-        if "XÃ" in column:
+        column = column.replace(" ","")
+        if "XÃ".replace(" ","") in column:
             return "Communes"
-        if "TỈNH/TP" in column:
+        if "TỈNH/TP".replace(" ","") in column:
             return "Provinces"
-        if "HỌC VẤN" in column:
+        if "HỌC VẤN".replace(" ","") in column:
             return "HocVan"
-        if "SỐNG/CHẾT" in column:
+        if "SỐNG/CHẾT".replace(" ","") in column:
             return "SongChet"
-        if "TRÌNH ĐỘ" in column:
+        if "TRÌNH ĐỘ".replace(" ","") in column:
             return "TrinhDoChuyenMon"
-        if "DÂN TỘC" in column:
+        if "DÂN TỘC".replace(" ","") in column:
             return "DanToc"
-        if "TÔN GIAO" in column:
+        if "TÔN GIAO".replace(" ","") in column:
             return "TonGiao"
-        if "QUỐC TÍCH" in column:
+        if "QUỐC TÍCH".replace(" ","") in column:
             return "QuocTich"
-        if "THÀNH PHẦN" in column:
+        if "THÀNH PHẦN".replace(" ","") in column:
             return "ThanhPhan"
-        if "CÓ" in column and ("CHƯA" in column or "KHÔNG" in column):
+        if "CÓ".replace(" ","") in column and ("CHƯA".replace(" ","") in column or "KHÔNG".replace(" ","") in column):
             return "CoKhong"
-        if "NGÀY" in column:
+        if "NGÀY".replace(" ","") in column and "CẤP".replace(" ","") not in column:
             return "dateDay"
-        if "THÁNG" in column:
+        if "THÁNG".replace(" ","") in column:
             return "dateMonth"
-        if "NĂM" in column:
+        if "NĂM".replace(" ","") in column:
             return "dateYear"
         return "string"
 

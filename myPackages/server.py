@@ -6,12 +6,16 @@ import myPackages.dataContainer as dc
 from typing import Dict, Any
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
+import yaml
 
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
 settingFile = "setting/labelConfig.yaml"
+typedefFile = "setting/DataType.yaml"
+adminDivFile = "setting/AdministrativeDivision.yaml"
 dataKey = ["Thuongtruap","Namsinh","Hovaten"]
 searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
+requiredData = ["Namsinh","Hovaten"]
 dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
 
 # Mount static folder for CSS/JS/images
@@ -49,14 +53,79 @@ async def create_items(request: Request):
     return Response(status_code=204)  # No Content
 
 
-def gatherInformation(key,question,valueLabel,placeHodler):
-    str = f'\n<div class="info-item">{question}: \n<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input line-full" placeholder="{placeHodler}" required>\n</div>'
+def gatherInformation(key,question,valueLabel,placeHodler,dataType):
+    btn = f'<button type="button" class="auto-btn">▼</button>'
+    required = ""
+    if key in requiredData:
+        required = "required"
+    if dataType == "string":
+        str = f'\n<div class="info-item">{question}: \n<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input line-full" placeholder="{placeHodler}" {required}>\n</div>'
+    else:
+        str = f'<div class="autocomplete" id="{key}" style="width:150px;">{question}: \n<input class="auto-input" type="text" name="{key}" value="{valueLabel}" placeholder="{placeHodler} {required}">{btn}\n</div>'
     return  str
 
 templates.env.globals["gatherInformation"] = gatherInformation
 
-def gatherGroupInformation(key,valueLabel,placeHodler):
-    str = f'<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input" placeholder="{placeHodler}" required>\n'
+def gatherGroupInformation(key,valueLabel,placeHodler,dataType):
+    btn = f'<button type="button" class="auto-btn">▼</button>'
+    required = ""
+    if key in requiredData:
+        required = "required"
+    if dataType == "string":
+        str = f'<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input" placeholder="{placeHodler}" {required}>\n'
+    else:
+        str = f'<span class="autocomplete" id="{key}" style="width:150px;">\n<input class="auto-input"  type="text" name="{key}" value="{valueLabel}" placeholder="{placeHodler}" {required}>{btn}\n</span>'
     return str
 
 templates.env.globals["gatherGroupInformation"] = gatherGroupInformation
+
+def createOptionList():
+    retStr = "<script>\n"
+    # Load configration
+    with open(typedefFile, "r", encoding="utf-8") as f:
+        typeDef = yaml.safe_load(f)
+    retStr = retStr + "Communes = [];\n"
+    retStr = retStr + "const Provinces = [];\n"
+    for type in typeDef["DataTypeList"]:
+        startStr = "const " + type + " = ["
+        if "date" in type:
+            for i in range(int(typeDef[type][0]), int(typeDef[type][1])+1):
+                startStr += f'"{i}"' +","
+        else:
+            for value in typeDef[type]:
+                startStr += f'"{value}"' +","
+        startStr = startStr[:-1] + "];\n"
+        retStr = retStr + startStr
+    retStr = retStr + "</script>"
+    return retStr
+
+templates.env.globals["createOptionList"] = createOptionList
+
+
+def createOptionForLables(config):
+    retStr = "<script>\n"
+    for column in config["columnList"]:
+        if config[column]["DataType"] == "string":
+            continue
+        else:
+            retStr = retStr + f'autocomplete(document.getElementById("{column}"), {config[column]["DataType"]})\n'
+    retStr = retStr + "</script>"
+    return retStr
+
+templates.env.globals["createOptionForLables"] = createOptionForLables
+
+def createCommnuneByDistrict():
+    retStr = "<script>\n"
+    retStr = retStr + "COMMUNE_BY_DISTRICT = {\n"
+    with open(adminDivFile, "r", encoding="utf-8") as f:
+        tree = yaml.safe_load(f)
+    for province in tree["Provinces"]:
+        communeList = ""
+        for commune in tree[province]:
+            communeList = communeList + f'"{commune}"' + ","
+        retStr = retStr + f'"{province}": [{communeList[:-1]}],'
+    retStr = retStr[:-1] + "\n}\n"
+    retStr = retStr + "</script>"
+    return retStr
+
+templates.env.globals["createCommnuneByDistrict"] = createCommnuneByDistrict

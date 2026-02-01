@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lý Lịch Nghĩa Vụ Quân Sự - Mẫu</title>
     <style>
+        .autocomplete {
+        /*the container must be positioned relative:*/
+        position: relative;
+        display: inline;
+        margin-right: 20px;
+        }
+        .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #e9e9e9;
+        }
         body {
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
@@ -48,6 +75,10 @@
         .line-full {
             width: 60%;
         }
+        button {
+            cursor: pointer;
+        }
+
         /* Custom size adjustments for inputs */
         input[name*="ngay"], input[name*="thang"] { width: 40px; }
         input[name*="nam"] { width: 60px; }
@@ -88,16 +119,17 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
             {%- if config[key]["Group"] == "objectName" -%}
-                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
-                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "thuongTru"-%}
-                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "tamTru"-%}
-                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- else -%}
-                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
@@ -128,16 +160,17 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
             {%- if config[key]["Group"] == "objectName" -%}
-                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
-                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "thuongTru"-%}
-                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "tamTru"-%}
-                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- else -%}
-                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
@@ -168,16 +201,17 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
             {%- if config[key]["Group"] == "objectName" -%}
-                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
-                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "thuongTru"-%}
-                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "tamTru"-%}
-                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- else -%}
-                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
@@ -206,16 +240,17 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
             {%- if config[key]["Group"] == "objectName" -%}
-                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
-                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "thuongTru"-%}
-                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "tamTru"-%}
-                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- else -%}
-                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
@@ -244,16 +279,17 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
             {%- if config[key]["Group"] == "objectName" -%}
-                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
-                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "thuongTru"-%}
-                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- elif config[key]["Group"] == "tamTru"-%}
-                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler,dataType) -%}
             {%- else -%}
-                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
             {%- endif -%}
         {%- endif -%}
         {%- endfor -%}
@@ -278,7 +314,8 @@
             {%- set question = config[key]['Question'].replace("\n","") -%}
             {%- set valueLabel  = obj[key] -%}
             {%- set placeHodler = config[key]['PlaceHolder'] -%}
-            {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- set dataType = config[key]['DataType'] -%}
+            {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
         {%- endif -%}
         {%- endfor -%}
         
@@ -288,5 +325,12 @@
             <button id="myButton" type="submit">Gửi dữ liệu</button>
         </p>
     </form>
+
+
+    <!-- Link external JS -->
+    <script src="/static/rootScript.js"></script>
+    {{ createOptionList() | safe }}
+    {{ createOptionForLables(config) | safe}}
+    {{ createCommnuneByDistrict() | safe}}
     </body>
 </html>

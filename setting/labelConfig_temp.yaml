@@ -165,7 +165,7 @@ Ngaycap:
   Question: "Ngày cấp"
   Group: "other"
   Object: "personal"
-  DataType: "dateDay"
+  DataType: "string"
   PlaceHolder: ""
 
 Noiangkykhaisinh:
@@ -269,7 +269,7 @@ Tamtrutinhtp:
   Question: "Tạm trú - tỉnh/ Tp"
   Group: "tamTru"
   Object: "personal"
-  DataType: "string"
+  DataType: "Provinces"
   PlaceHolder: ""
 
 Thanhphan:

@@ -1,3 +1,5 @@
+
+
 DataTypeList:
   - HocVan
   - TrinhDoChuyenMon
@@ -7,6 +9,22 @@ DataTypeList:
   - SongChet
   - ThanhPhan
   - CoKhong
+  - dateDay
+  - dateMonth
+  - dateYear
+
+dateDay:
+  - "1"
+  - "31"
+
+dateMonth:
+  - "1"
+  - "12"
+
+dateYear:
+  - "1900"
+  - "2026"
+
 
 HocVan:
   - 0/12
