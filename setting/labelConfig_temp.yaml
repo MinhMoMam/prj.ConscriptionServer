@@ -211,7 +211,7 @@ Quoctich:
 Thuongtrusonha:
   ColumnLabel: "Thường trú - số nhà"
   Question: "Thường trú - số nhà"
-  Group: "other"
+  Group: "thuongTru"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -243,7 +243,7 @@ Thuongtrutinhtp:
 Tamtrusonha:
   ColumnLabel: "Tạm trú - số nhà"
   Question: "Tạm trú - số nhà"
-  Group: "other"
+  Group: "tamTru"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -515,7 +515,7 @@ Quequancuacha:
 Thuongtruchasonha:
   ColumnLabel: "Thường trú Cha - số nhà"
   Question: "Thường trú Cha - số nhà"
-  Group: "other"
+  Group: "thuongTru"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -547,7 +547,7 @@ Thuongtruchatinhtp:
 Tamtruchasonha:
   ColumnLabel: "Tạm trú Cha - số nhà"
   Question: "Tạm trú Cha - số nhà"
-  Group: "other"
+  Group: "tamTru"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -619,7 +619,7 @@ Quequancuame:
 Thuongtrumesonha:
   ColumnLabel: "Thường trú Mẹ - số nhà"
   Question: "Thường trú Mẹ - số nhà"
-  Group: "other"
+  Group: "thuongTru"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -651,7 +651,7 @@ Thuongtrumetinhtp:
 Tamtrumesonha:
   ColumnLabel: "Tạm trú Mẹ - số nhà"
   Question: "Tạm trú Mẹ - số nhà"
-  Group: "other"
+  Group: "tamTru"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""

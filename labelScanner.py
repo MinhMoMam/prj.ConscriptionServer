@@ -20,7 +20,7 @@ class columnPaser:
             return "objectName"
         if "HỌC" in column or "ĐÀOTẠO" in column or "TỐTNGHIỆP" in column or "TRÌNHĐỘ" in column or "C1" in column or "C2" in column or "C3" in column:
             return "education"
-        if ("XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ" in column) and "CẤP" not in column:
+        if ("XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ".replace(" ","") in column) and "CẤP" not in column:
             if "THƯỜNGTRÚ" in column:
                 return "thuongTru"
             if "TẠMTRÚ" in column:
