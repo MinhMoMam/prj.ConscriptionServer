@@ -4,6 +4,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import myPackages.dataContainer as dc
 from typing import Dict, Any
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
 settingFile = "setting/labelConfig.yaml"
@@ -44,3 +47,16 @@ async def create_items(request: Request):
     data = dict(form)            # Convert to dictionary
     dataCon.updateDataFrame(data)
     return Response(status_code=204)  # No Content
+
+
+def gatherInformation(key,question,valueLabel,placeHodler):
+    str = f'\n<div class="info-item">{question}: \n<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input line-full" placeholder="{placeHodler}" required>\n</div>'
+    return  str
+
+templates.env.globals["gatherInformation"] = gatherInformation
+
+def gatherGroupInformation(key,valueLabel,placeHodler):
+    str = f'<input type="text" name="{key}" value="{valueLabel}" class="placeholder-input" placeholder="{placeHodler}" required>\n'
+    return str
+
+templates.env.globals["gatherGroupInformation"] = gatherGroupInformation

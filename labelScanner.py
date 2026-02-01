@@ -13,13 +13,19 @@ class columnPaser:
 
     def createGroup(self,columnTitle):
         column = columnTitle.upper()
-        if "NGÀY SINH" in column or "THÁNG SINH" in column or "NĂM SINH" in column:
+        column = column.replace(" ","")
+        if "NGÀYSINH" in column or "THÁNGSINH" in column or "NĂMSINH" in column:
             return "date"
-        if "HỌC" in column or "ĐÀO TẠO" in column or "TỐT NGHIỆP" in column or "TRÌNH ĐỘ" in column or "C1" in column or "C2" in column or "C3" in column:
+        if "HỌ" in column and "TÊN" in column:
+            return "objectName"
+        if "HỌC" in column or "ĐÀOTẠO" in column or "TỐTNGHIỆP" in column or "TRÌNHĐỘ" in column or "C1" in column or "C2" in column or "C3" in column:
             return "education"
-        if "XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ" in column:
-            return "address"
-        if "MÃ 4DS" in column or "NỘI DUNG XẾP LOẠI" in column:
+        if ("XÃ" in column or "TỈNH/TP" in column or "ẤP" in column or "SỐ NHÀ" in column) and "CẤP" not in column:
+            if "THƯỜNGTRÚ" in column:
+                return "thuongTru"
+            if "TẠMTRÚ" in column:
+                return "tamTru"
+        if "MÃ4DS" in column or "NỘIDUNGXẾPLOẠI" in column:
             return "hiden"
         return "other"
 
@@ -45,6 +51,12 @@ class columnPaser:
             return "ThanhPhan"
         if "CÓ" in column and ("CHƯA" in column or "KHÔNG" in column):
             return "CoKhong"
+        if "NGÀY" in column:
+            return "dateDay"
+        if "THÁNG" in column:
+            return "dateMonth"
+        if "NĂM" in column:
+            return "dateYear"
         return "string"
 
     def createObject(self,columnTitle):

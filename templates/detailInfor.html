@@ -78,15 +78,212 @@
     <form action="/submit-military-data" method="POST">
 
         <div class="section-title">I. SƠ YẾU LÝ LỊCH</div>
-        {% for key in config["columnList"] %}
-        {% if config[key]["Group"] != "hiden"%}
-        <div class="info-item">{{ config[key]['Question'].replace("\n","") }}: 
-            {% set columnLable = config[key]['ColumnLabel'] %}
-            {% set placeHodler = config[key]['PlaceHolder'] %}
-            <input type="text" name="{{ key }}" value="{{ obj[key] }}" class="placeholder-input line-full" placeholder="{{ placeHodler }}" required>
+        {%- set ns = namespace(nameForm="") -%}
+        {%- set ns = namespace(dateOfBirthForm="") -%}
+        {%- set ns = namespace(thuongTruAddressForm="") -%}
+        {%- set ns = namespace(tamTruAddressForm="") -%}
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "personal" and config[key]["Group"] != "education" and config[key]["Group"] != "hiden" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- if config[key]["Group"] == "objectName" -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "thuongTru"-%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "tamTru"-%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- else -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.nameForm | safe }}
+        <div class="info-item">Ngày tháng năm sinh:
+            {{ ns.dateOfBirthForm | safe }}
         </div>
-        {% endif %}
-        {% endfor %}
+        <div class="info-item">Địa chỉ thường trú:
+            {{ ns.thuongTruAddressForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ tạm trú:
+            {{ ns.tamTruAddressForm | safe }}
+        </div>
+        {{ ns.otherInfor | safe }}
+
+
+
+        <div class="section-title">II. TÌNH HÌNH KINH TẾ, CHÍNH TRỊ CỦA GIA ĐÌNH</div>
+        <p><strong>1. Thông tin về cha</strong></p>
+        {%- set ns = namespace(nameForm="") -%}
+        {%- set ns = namespace(dateOfBirthForm="") -%}
+        {%- set ns = namespace(thuongTruAddressForm="") -%}
+        {%- set ns = namespace(tamTruAddressForm="") -%}
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "father" and config[key]["Group"] != "education" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- if config[key]["Group"] == "objectName" -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "thuongTru"-%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "tamTru"-%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- else -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.nameForm | safe }}
+        <div class="info-item">Ngày tháng năm sinh:
+            {{ ns.dateOfBirthForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ thường trú:
+            {{ ns.thuongTruAddressForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ tạm trú:
+            {{ ns.tamTruAddressForm | safe }}
+        </div>
+        {{ ns.otherInfor | safe }}
+        {{ otherInfor }}
+
+
+
+        <p><strong>2. Thông tin về Mẹ </strong></p>
+        {%- set ns = namespace(nameForm="") -%}
+        {%- set ns = namespace(dateOfBirthForm="") -%}
+        {%- set ns = namespace(thuongTruAddressForm="") -%}
+        {%- set ns = namespace(tamTruAddressForm="") -%}
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "mother" and config[key]["Group"] != "education" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- if config[key]["Group"] == "objectName" -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "thuongTru"-%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "tamTru"-%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- else -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.nameForm | safe }}
+        <div class="info-item">Ngày tháng năm sinh:
+            {{ ns.dateOfBirthForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ thường trú:
+            {{ ns.thuongTruAddressForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ tạm trú:
+            {{ ns.tamTruAddressForm | safe }}
+        </div>
+        {{ ns.otherInfor | safe }}
+
+
+        <p><strong>3. Thông tin về anh chị em </strong></p>
+        {%- set ns = namespace(nameForm="") -%}
+        {%- set ns = namespace(dateOfBirthForm="") -%}
+        {%- set ns = namespace(thuongTruAddressForm="") -%}
+        {%- set ns = namespace(tamTruAddressForm="") -%}
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "sibling" and config[key]["Group"] != "education" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- if config[key]["Group"] == "objectName" -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "thuongTru"-%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "tamTru"-%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- else -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.nameForm | safe }}
+        <div class="info-item">Ngày tháng năm sinh:
+            {{ ns.dateOfBirthForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ thường trú:
+            {{ ns.thuongTruAddressForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ tạm trú:
+            {{ ns.tamTruAddressForm | safe }}
+        </div>
+        {{ ns.otherInfor | safe }}
+
+
+        <p><strong>4. Thông tin về vợ/chồng </strong></p>
+        {%- set ns = namespace(nameForm="") -%}
+        {%- set ns = namespace(dateOfBirthForm="") -%}
+        {%- set ns = namespace(thuongTruAddressForm="") -%}
+        {%- set ns = namespace(tamTruAddressForm="") -%}
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "wife" and config[key]["Group"] != "education" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- if config[key]["Group"] == "objectName" -%}
+                {%- set ns.nameForm = ns.nameForm ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "date" and "SINH" in config[key]["ColumnLabel"].upper()-%} 
+                {%- set ns.dateOfBirthForm = ns.dateOfBirthForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "thuongTru"-%}
+                {%- set ns.thuongTruAddressForm = ns.thuongTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- elif config[key]["Group"] == "tamTru"-%}
+                {%- set ns.tamTruAddressForm = ns.tamTruAddressForm ~ gatherGroupInformation(key,valueLabel,placeHodler) -%}
+            {%- else -%}
+                {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.nameForm | safe }}
+        <div class="info-item">Ngày tháng năm sinh:
+            {{ ns.dateOfBirthForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ thường trú:
+            {{ ns.thuongTruAddressForm | safe }}
+        </div>
+        <div class="info-item">Địa chỉ tạm trú:
+            {{ ns.tamTruAddressForm | safe }}
+        </div>
+        {{ ns.otherInfor | safe }}
+
+
+        <div class="section-title">III. TÌNH HÌNH KINH TẾ, CHÍNH TRỊ, QUÁ TRÌNH CÔNG TÁC CỦA BẢN THÂN</div>
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Object"] == "personal" and config[key]["Group"] == "education"-%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler) -%}
+        {%- endif -%}
+        {%- endfor -%}
+        
+        {{ ns.otherInfor | safe }}
+
         <p style="text-align: center;">
             <button id="myButton" type="submit">Gửi dữ liệu</button>
         </p>

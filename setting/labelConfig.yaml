@@ -123,7 +123,7 @@ Noidungxeploai:
 Hovaten:
   ColumnLabel: "Họ và tên"
   Question: "Họ và tên"
-  Group: "other"
+  Group: "objectName"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -133,7 +133,7 @@ Ngaysinh:
   Question: "Ngày sinh"
   Group: "date"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Thangsinh:
@@ -141,7 +141,7 @@ Thangsinh:
   Question: "Tháng sinh"
   Group: "date"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateMonth"
   PlaceHolder: ""
 
 Namsinh:
@@ -149,7 +149,7 @@ Namsinh:
   Question: "Năm sinh"
   Group: "date"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 Cccd:
@@ -163,9 +163,9 @@ Cccd:
 Ngaycap:
   ColumnLabel: "Ngày cấp"
   Question: "Ngày cấp"
-  Group: "address"
+  Group: "other"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Noiangkykhaisinh:
@@ -211,7 +211,7 @@ Quoctich:
 Thuongtrusonha:
   ColumnLabel: "Thường trú - số nhà"
   Question: "Thường trú - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -219,7 +219,7 @@ Thuongtrusonha:
 Thuongtruap:
   ColumnLabel: "Thường trú - ấp"
   Question: "Thường trú - ấp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -227,7 +227,7 @@ Thuongtruap:
 Thuongtruxa:
   ColumnLabel: "Thường trú - xã"
   Question: "Thường trú - xã"
-  Group: "address"
+  Group: "thuongTru"
   Object: "personal"
   DataType: "Communes"
   PlaceHolder: ""
@@ -235,7 +235,7 @@ Thuongtruxa:
 Thuongtrutinhtp:
   ColumnLabel: "Thường trú - tỉnh/Tp"
   Question: "Thường trú - tỉnh/Tp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "personal"
   DataType: "Provinces"
   PlaceHolder: ""
@@ -243,7 +243,7 @@ Thuongtrutinhtp:
 Tamtrusonha:
   ColumnLabel: "Tạm trú - số nhà"
   Question: "Tạm trú - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -251,7 +251,7 @@ Tamtrusonha:
 Tamtruap:
   ColumnLabel: "Tạm trú - ấp"
   Question: "Tạm trú - ấp"
-  Group: "address"
+  Group: "tamTru"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -259,7 +259,7 @@ Tamtruap:
 Tamtruxa:
   ColumnLabel: "Tạm trú - xã"
   Question: "Tạm trú - xã"
-  Group: "address"
+  Group: "tamTru"
   Object: "personal"
   DataType: "Communes"
   PlaceHolder: ""
@@ -267,7 +267,7 @@ Tamtruxa:
 Tamtrutinhtp:
   ColumnLabel: "Tạm trú - tỉnh/ Tp"
   Question: "Tạm trú - tỉnh/ Tp"
-  Group: "other"
+  Group: "tamTru"
   Object: "personal"
   DataType: "string"
   PlaceHolder: ""
@@ -331,7 +331,7 @@ Noilamviecvahoctap:
 Hotencha:
   ColumnLabel: "Họ tên cha"
   Question: "Họ tên cha"
-  Group: "other"
+  Group: "objectName"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -341,7 +341,7 @@ Changaysinh:
   Question: "Cha - Ngày sinh"
   Group: "date"
   Object: "father"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Thangsinhcha:
@@ -349,7 +349,7 @@ Thangsinhcha:
   Question: "Tháng sinh Cha"
   Group: "date"
   Object: "father"
-  DataType: "string"
+  DataType: "dateMonth"
   PlaceHolder: ""
 
 Namsinhcha:
@@ -357,7 +357,7 @@ Namsinhcha:
   Question: "Năm sinh Cha"
   Group: "date"
   Object: "father"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 Chasongchet:
@@ -379,7 +379,7 @@ Nghenghiepcha:
 Hotenme:
   ColumnLabel: "Họ tên mẹ"
   Question: "Họ tên mẹ"
-  Group: "other"
+  Group: "objectName"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -389,7 +389,7 @@ Mengaysinh:
   Question: "Mẹ - ngày sinh"
   Group: "date"
   Object: "mother"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Thangsinhme:
@@ -397,7 +397,7 @@ Thangsinhme:
   Question: "Tháng sinh Mẹ"
   Group: "date"
   Object: "mother"
-  DataType: "string"
+  DataType: "dateMonth"
   PlaceHolder: ""
 
 Namsinhme:
@@ -405,7 +405,7 @@ Namsinhme:
   Question: "Năm sinh Mẹ"
   Group: "date"
   Object: "mother"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 Mesongchet:
@@ -427,7 +427,7 @@ Nghenghiepme:
 Hotenvochong:
   ColumnLabel: "Họ tên vợ ( chồng )"
   Question: "Họ tên vợ ( chồng )"
-  Group: "other"
+  Group: "objectName"
   Object: "wife"
   DataType: "string"
   PlaceHolder: ""
@@ -437,7 +437,7 @@ Ngaysinhvochong:
   Question: "Ngày sinh - vợ chồng"
   Group: "date"
   Object: "wife"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Thangsinhvochong:
@@ -445,7 +445,7 @@ Thangsinhvochong:
   Question: "Tháng sinh - vợ chồng"
   Group: "date"
   Object: "wife"
-  DataType: "string"
+  DataType: "dateMonth"
   PlaceHolder: ""
 
 Namsinhvochong:
@@ -453,7 +453,7 @@ Namsinhvochong:
   Question: "Năm sinh vợ chồng"
   Group: "date"
   Object: "wife"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 Nghenghiepcuavochong:
@@ -515,7 +515,7 @@ Quequancuacha:
 Thuongtruchasonha:
   ColumnLabel: "Thường trú Cha - số nhà"
   Question: "Thường trú Cha - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -523,7 +523,7 @@ Thuongtruchasonha:
 Thuongtruchaap:
   ColumnLabel: "Thường trú Cha - ấp"
   Question: "Thường trú Cha - ấp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -531,7 +531,7 @@ Thuongtruchaap:
 Thuongtruchaxa:
   ColumnLabel: "Thường trú Cha - xã"
   Question: "Thường trú Cha - xã"
-  Group: "address"
+  Group: "thuongTru"
   Object: "father"
   DataType: "Communes"
   PlaceHolder: ""
@@ -539,7 +539,7 @@ Thuongtruchaxa:
 Thuongtruchatinhtp:
   ColumnLabel: "Thường trú Cha - tỉnh/Tp"
   Question: "Thường trú Cha - tỉnh/Tp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "father"
   DataType: "Provinces"
   PlaceHolder: ""
@@ -547,7 +547,7 @@ Thuongtruchatinhtp:
 Tamtruchasonha:
   ColumnLabel: "Tạm trú Cha - số nhà"
   Question: "Tạm trú Cha - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -555,7 +555,7 @@ Tamtruchasonha:
 Tamtruchaap:
   ColumnLabel: "Tạm trú Cha - ấp"
   Question: "Tạm trú Cha - ấp"
-  Group: "address"
+  Group: "tamTru"
   Object: "father"
   DataType: "string"
   PlaceHolder: ""
@@ -563,7 +563,7 @@ Tamtruchaap:
 Tamtruchaxa:
   ColumnLabel: "Tạm trú Cha -xã"
   Question: "Tạm trú Cha -xã"
-  Group: "address"
+  Group: "tamTru"
   Object: "father"
   DataType: "Communes"
   PlaceHolder: ""
@@ -571,7 +571,7 @@ Tamtruchaxa:
 Tamtruchatinhtp:
   ColumnLabel: "Tạm trú Cha - tỉnh/Tp"
   Question: "Tạm trú Cha - tỉnh/Tp"
-  Group: "address"
+  Group: "tamTru"
   Object: "father"
   DataType: "Provinces"
   PlaceHolder: ""
@@ -619,7 +619,7 @@ Quequancuame:
 Thuongtrumesonha:
   ColumnLabel: "Thường trú Mẹ - số nhà"
   Question: "Thường trú Mẹ - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -627,7 +627,7 @@ Thuongtrumesonha:
 Thuongtrumeap:
   ColumnLabel: "Thường trú Mẹ - ấp"
   Question: "Thường trú Mẹ - ấp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -635,7 +635,7 @@ Thuongtrumeap:
 Thuongtrumexa:
   ColumnLabel: "Thường trú Mẹ - xã"
   Question: "Thường trú Mẹ - xã"
-  Group: "address"
+  Group: "thuongTru"
   Object: "mother"
   DataType: "Communes"
   PlaceHolder: ""
@@ -643,7 +643,7 @@ Thuongtrumexa:
 Thuongtrumetinhtp:
   ColumnLabel: "Thường trú Mẹ - tỉnh/Tp"
   Question: "Thường trú Mẹ - tỉnh/Tp"
-  Group: "address"
+  Group: "thuongTru"
   Object: "mother"
   DataType: "Provinces"
   PlaceHolder: ""
@@ -651,7 +651,7 @@ Thuongtrumetinhtp:
 Tamtrumesonha:
   ColumnLabel: "Tạm trú Mẹ - số nhà"
   Question: "Tạm trú Mẹ - số nhà"
-  Group: "address"
+  Group: "other"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -659,7 +659,7 @@ Tamtrumesonha:
 Tamtrumeap:
   ColumnLabel: "Tạm trú Mẹ - ấp"
   Question: "Tạm trú Mẹ - ấp"
-  Group: "address"
+  Group: "tamTru"
   Object: "mother"
   DataType: "string"
   PlaceHolder: ""
@@ -667,7 +667,7 @@ Tamtrumeap:
 Tamtrumexa:
   ColumnLabel: "Tạm trú Mẹ - xã"
   Question: "Tạm trú Mẹ - xã"
-  Group: "address"
+  Group: "tamTru"
   Object: "mother"
   DataType: "Communes"
   PlaceHolder: ""
@@ -675,7 +675,7 @@ Tamtrumexa:
 Tamtrumetinhtp:
   ColumnLabel: "Tạm trú Mẹ - tỉnh/Tp"
   Question: "Tạm trú Mẹ - tỉnh/Tp"
-  Group: "address"
+  Group: "tamTru"
   Object: "mother"
   DataType: "Provinces"
   PlaceHolder: ""
@@ -715,7 +715,7 @@ Hiennaymelamgitaiau:
 Hovatenace:
   ColumnLabel: "Họ và tên ACE"
   Question: "Họ và tên ACE"
-  Group: "other"
+  Group: "objectName"
   Object: "sibling"
   DataType: "string"
   PlaceHolder: ""
@@ -725,7 +725,7 @@ Ngaythangnamsinhcuaace:
   Question: "Ngày tháng năm sinh của ace"
   Group: "date"
   Object: "sibling"
-  DataType: "string"
+  DataType: "dateDay"
   PlaceHolder: ""
 
 Nghenghiepace:
@@ -773,7 +773,7 @@ C1namnhaphoc:
   Question: "C1 - Năm nhập học "
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 C1namtotnghiep:
@@ -781,7 +781,7 @@ C1namtotnghiep:
   Question: "C1 - Năm tốt nghiệp"
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 C2:
@@ -813,7 +813,7 @@ C2namnhaphoc:
   Question: "C2 - Năm nhập học "
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 C2namtotnghiep:
@@ -821,7 +821,7 @@ C2namtotnghiep:
   Question: "C2 - Năm tốt nghiệp"
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 C3:
@@ -853,7 +853,7 @@ C3namnhaphoc:
   Question: "C3 - Năm nhập học "
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 C3namtotnghiep:
@@ -861,7 +861,7 @@ C3namtotnghiep:
   Question: "C3 - Năm tốt nghiệp"
   Group: "education"
   Object: "personal"
-  DataType: "string"
+  DataType: "dateYear"
   PlaceHolder: ""
 
 18nay:
