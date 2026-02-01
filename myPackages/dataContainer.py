@@ -123,12 +123,25 @@ class dataContainer:
         return FinalRetDict
 
 
-    def updateDataFrame(self,input):
-        idx = self.dataframe.index[(self.dataframe[self.config["HoVaTen"]["ColumnLabel"]] == input["HoVaTen"])].tolist()
-        for key,value in input.items():
-            if key in self.config["columnList"]:
-                dtype = self.dataframe[self.config[key]["ColumnLabel"]].dtype
-                self.dataframe.loc[idx, self.config[key]["ColumnLabel"]] = dtype.type(value)
-        return
+    def updateDataFrame(self,input,requiredData):
+        mask = pd.Series(True, index=self.dataframe.index)
+        for column in requiredData:
+            if input.get("HoVaTen"):
+                mask &= self.dataframe[self.config[column]["ColumnLabel"]] == input[column]
+
+        idx = self.dataframe.index[mask].tolist()
+
+        if len(idx) == 0:
+            return "CanFound"
+
+        try:
+            for key,value in input.items():
+                if key in self.config["columnList"] and value != "":
+                    dtype = self.dataframe[self.config[key]["ColumnLabel"]].dtype
+                    self.dataframe.loc[idx, self.config[key]["ColumnLabel"]] = dtype.type(value)
+        except:
+            return "TypeError"
+        
+        return "Success"
     
     

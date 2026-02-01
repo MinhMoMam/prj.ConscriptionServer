@@ -7,6 +7,7 @@ from typing import Dict, Any
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 import yaml
+from fastapi import HTTPException
 
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
@@ -49,9 +50,9 @@ def detailsView(request: Request):
 async def create_items(request: Request):
     form = await request.form()  # This captures ALL form fields
     data = dict(form)            # Convert to dictionary
-    dataCon.updateDataFrame(data)
+    retVal = dataCon.updateDataFrame(data,requiredData)
     return Response(status_code=204)  # No Content
-
+    
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
     btn = f'<button type="button" class="auto-btn">▼</button>'
@@ -134,7 +135,7 @@ def createOptionForLables(config):
             for comCol,value in commnuceList.items():
                 if value["Object"] == config[column]["Object"] and value["Group"] == config[column]["Group"]:
                     commnuceList.pop(comCol)
-                    retStr = retStr + f'autocompleteWithDependency(document.getElementById("{comCol}"), document.getElementById("{column}").value.querySelector(".auto-input"),COMMUNE_BY_DISTRICT)\n'
+                    retStr = retStr + f'autocompleteWithDependency(document.getElementById("{comCol}"), document.getElementById("{column}").querySelector(".auto-input"),COMMUNE_BY_DISTRICT)\n'
                     foundMatched = True
                     break
             if not foundMatched:
