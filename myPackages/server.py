@@ -84,8 +84,13 @@ def createOptionList():
     # Load configration
     with open(typedefFile, "r", encoding="utf-8") as f:
         typeDef = yaml.safe_load(f)
+    with open(adminDivFile, "r", encoding="utf-8") as f:
+        tree = yaml.safe_load(f)
     retStr = retStr + "Communes = [];\n"
-    retStr = retStr + "const Provinces = [];\n"
+    provinceList = "const Provinces = ["
+    for province in tree["Provinces"]:
+        provinceList = provinceList + f'"{province}"' + ","
+    retStr = retStr + provinceList[:-1] +"];\n"
     for type in typeDef["DataTypeList"]:
         startStr = "const " + type + " = ["
         if "date" in type:
@@ -104,11 +109,38 @@ templates.env.globals["createOptionList"] = createOptionList
 
 def createOptionForLables(config):
     retStr = "<script>\n"
+    # Normal Types
     for column in config["columnList"]:
-        if config[column]["DataType"] == "string":
+        if config[column]["DataType"] == "string" or config[column]["DataType"] == "Communes":
             continue
         else:
             retStr = retStr + f'autocomplete(document.getElementById("{column}"), {config[column]["DataType"]})\n'
+    # Depending Types
+    provinceList = {}
+    commnuceList = {}
+    for column in config["columnList"]:
+        if config[column]["DataType"] == "Communes":
+            foundMatched = False
+            for provCol,value in provinceList.items():
+                if value["Object"] == config[column]["Object"] and value["Group"] == config[column]["Group"]:
+                    provinceList.pop(provCol)
+                    retStr = retStr + f'autocompleteWithDependency(document.getElementById("{column}"), document.getElementById("{provCol}").querySelector(".auto-input"),COMMUNE_BY_DISTRICT)\n'
+                    foundMatched = True
+                    break
+            if not foundMatched:
+                commnuceList[column] = config[column]
+        elif config[column]["DataType"] == "Provinces":
+            foundMatched = False
+            for comCol,value in commnuceList.items():
+                if value["Object"] == config[column]["Object"] and value["Group"] == config[column]["Group"]:
+                    commnuceList.pop(comCol)
+                    retStr = retStr + f'autocompleteWithDependency(document.getElementById("{comCol}"), document.getElementById("{column}").value.querySelector(".auto-input"),COMMUNE_BY_DISTRICT)\n'
+                    foundMatched = True
+                    break
+            if not foundMatched:
+                provinceList[column] = config[column]
+        else:
+            continue
     retStr = retStr + "</script>"
     return retStr
 
