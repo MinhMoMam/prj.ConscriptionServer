@@ -52,6 +52,8 @@ async def create_items(request: Request):
     data = dict(form)            # Convert to dictionary
     retVal = dataCon.updateDataFrame(data,requiredData)
     return Response(status_code=204)  # No Content
+
+@app.post("/submit-military-data/")
     
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
