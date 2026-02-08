@@ -134,5 +134,43 @@ function autocompleteWithDependency(communeSelect, provinceSelect, COMMUNE_BY_DI
 }
 
 
+  function showToast(message, duration = 3000) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
 
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, duration);
+  }
 
+  async function saveDatabase() {
+    try {
+      const response = await fetch("/SaveDatabase", {
+        method: "GET"
+      });
+
+      const data = await response.json();  // FastAPI response
+
+      showToast(data.message);  // show it in toast
+    }
+    catch (error) {
+      showToast("Error connecting to server ❌");
+    }
+  }
+
+  async function exportData() {
+    try {
+      const response = await fetch("/ExportInformation", {
+        method: "GET"
+      });
+
+      const data = await response.json();  // FastAPI response
+
+      showToast(data.message);  // show it in toast
+    }
+    catch (error) {
+      showToast("Error connecting to server ❌");
+    }
+  }
+  

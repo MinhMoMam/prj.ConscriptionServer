@@ -53,8 +53,24 @@ async def create_items(request: Request):
     retVal = dataCon.updateDataFrame(data,requiredData)
     return Response(status_code=204)  # No Content
 
-@app.post("/submit-military-data/")
-    
+@app.get("/SaveDatabase")
+async def saveDatabase(request: Request):
+    form = await request.form()  # This captures ALL form fields
+    data = dict(form)            # Convert to dictionary
+    dataCon.saveExcelFile()
+    return {
+        "title": "Save data successfully🎉",
+        "message": "Save data successfully🎉"
+    }
+
+@app.get("/ExportInformation")
+async def ExportInformation(request: Request):
+    form = await request.form()  # This captures ALL form fields
+    data = dict(form)            # Convert to dictionary
+    return {
+        "title": "Export data successfully🎉",
+        "message": "Export data successfully🎉"
+    }  
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
     btn = f'<button type="button" class="auto-btn">▼</button>'

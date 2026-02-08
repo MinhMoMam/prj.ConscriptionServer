@@ -128,6 +128,28 @@
             font-size: 3em;
             margin-top: 20px;
         }
+
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 15px;
+      position: fixed;
+      z-index: 9999;
+      bottom: 30px;
+      right: 30px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
     </style>
 </head>
 <body>
@@ -361,13 +383,11 @@
     </form>
 
     <p style="text-align:center;">
-        <a href="/SaveDatabase">
-            <button id="myButton">Save</button>
-        </a>
-        <a href="/ExportInformation">
-            <button id="myButton">Export</button>
-        </a>
+        <button id="myButton" onclick="saveDatabase()" >Save</button>
+        <button id="myButton" onclick="exportData()">Export</button>
     </p>
+
+    <div id="toast"></div>
 
 
     <!-- Link external JS -->

@@ -9,6 +9,7 @@ class dataContainer:
         with open(setting, "r", encoding="utf-8") as f:
             self.config = yaml.safe_load(f)
         # Load excel file
+        self.excelFile = execelFile;
         self.dataframe = pd.read_excel(execelFile, sheet_name=self.config["Sheet"])
         self.dataframe = self.dataframe
         self.dataframe = self.dataframe.apply(pd.to_numeric, errors="ignore")
@@ -126,11 +127,15 @@ class dataContainer:
     def updateDataFrame(self,input,requiredData):
         mask = pd.Series(True, index=self.dataframe.index)
         for column in requiredData:
-            if input.get("HoVaTen"):
-                mask &= self.dataframe[self.config[column]["ColumnLabel"]] == input[column]
+            if self.config[column]["DataType"] == "number":
+                value = int(input[column])
+                target_dtype = "Int64"
+            else:
+                value = str(input[column])
+                target_dtype = "string"
+            mask &= self.dataframe[self.config[column]["ColumnLabel"]].astype(target_dtype) == value
 
-        idx = self.dataframe.index[mask].tolist()
-
+        idx = self.dataframe[mask].index.tolist()
         if len(idx) == 0:
             return "CanFound"
 
@@ -144,4 +149,27 @@ class dataContainer:
         
         return "Success"
     
+    def saveExcelFile(self):
+        # beginningDataframe = pd.read_excel(self.excelFile, sheet_name=self.config["Sheet"])
+        # coloredDataFrame = highlight_differences(self.dataframe,beginningDataframe)
+        self.dataframe.to_excel(self.excelFile, sheet_name=self.config["Sheet"], index=False)
+        return True
     
+def highlight_differences(df1, df2, color="yellow"):
+    if df1.shape != df2.shape:
+        raise ValueError("DataFrames must have the same shape")
+
+    def style_func(x):
+        styles = pd.DataFrame("", index=df1.index, columns=df1.columns)
+
+        for i in range(df1.shape[0]):          # rows
+            for j in range(df1.shape[1]):      # cols
+                try:
+                    if df1.iat[i, j] != df2.iat[i, j] and df1.iat[i, j] != "" :
+                        styles.iat[i, j] = f"background-color: {color}"
+                except:
+                    continue
+
+        return styles
+
+    return df1.style.apply(style_func, axis=None)
