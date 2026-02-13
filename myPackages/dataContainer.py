@@ -98,26 +98,30 @@ class dataContainer:
     def retObjDetailInformation(self, searchingParam):
         retDict = {}
         retDataFrame = self.dataframe
-        for key,value in searchingParam.items():
-            if self.config[key]["DataType"] == "number":
-                value = int(value)
-                target_dtype = "Int64"
-            else:
-                value = str(value)
-                target_dtype = "string"
-            if value != "":
-                retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == value]
-        if len(retDataFrame) != 1:
-            return {}
-        else:
+        if len(searchingParam) == 0:
             for column in self.config["columnList"]:
-                if self.config[column]["Group"] == "hiden":
-                    continue
-                value = retDataFrame.iloc[0][self.config[column]["ColumnLabel"]]
-                if str(value) == "nan" or str(value) == "<NA>":
-                    retDict[column] = ""
+                retDict[column] = ""
+        else:
+            for key,value in searchingParam.items():
+                if self.config[key]["DataType"] == "number":
+                    value = int(value)
+                    target_dtype = "Int64"
                 else:
-                    retDict[column] = value
+                    value = str(value)
+                    target_dtype = "string"
+                if value != "":
+                    retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == value]
+            if len(retDataFrame) != 1:
+                return {}
+            else:
+                for column in self.config["columnList"]:
+                    if self.config[column]["Group"] == "hiden":
+                        continue
+                    value = retDataFrame.iloc[0][self.config[column]["ColumnLabel"]]
+                    if str(value) == "nan" or str(value) == "<NA>":
+                        retDict[column] = ""
+                    else:
+                        retDict[column] = value
         FinalRetDict = {}
         FinalRetDict["obj"] = retDict
         FinalRetDict["config"] = self.config
@@ -137,15 +141,23 @@ class dataContainer:
 
         idx = self.dataframe[mask].index.tolist()
         if len(idx) == 0:
-            return "CanFound"
-
-        try:
+            # Add new data frame:
+            newRow = {}
             for key,value in input.items():
                 if key in self.config["columnList"] and value != "":
                     dtype = self.dataframe[self.config[key]["ColumnLabel"]].dtype
-                    self.dataframe.loc[idx, self.config[key]["ColumnLabel"]] = dtype.type(value)
-        except:
-            return "TypeError"
+                    columnTitle = self.config[key]["ColumnLabel"]
+                    newRow[columnTitle] = dtype.type(value)
+            self.dataframe = pd.concat([self.dataframe,pd.DataFrame([newRow])],ignore_index=True)
+            print("Add new data")
+        else:
+            try:
+                for key,value in input.items():
+                    if key in self.config["columnList"] and value != "":
+                        dtype = self.dataframe[self.config[key]["ColumnLabel"]].dtype
+                        self.dataframe.loc[idx, self.config[key]["ColumnLabel"]] = dtype.type(value)
+            except:
+                return "TypeError"
         
         return "Success"
     

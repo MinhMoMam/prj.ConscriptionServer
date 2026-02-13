@@ -16,7 +16,7 @@ typedefFile = "setting/DataType.yaml"
 adminDivFile = "setting/AdministrativeDivision.yaml"
 dataKey = ["Thuongtruap","Namsinh","Hovaten"]
 searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
-requiredData = ["Namsinh","Hovaten"]
+requiredData = ["Namsinh","Hovaten","Thuongtruap"]
 dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
 
 # Mount static folder for CSS/JS/images
@@ -70,7 +70,14 @@ async def ExportInformation(request: Request):
     return {
         "title": "Export data successfully🎉",
         "message": "Export data successfully🎉"
-    }  
+    }
+
+@app.get("/AddNew")
+async def ExportInformation(request: Request):
+    params: dict = dict(request.query_params)
+    content = dataCon.retObjDetailInformation({})
+    content["request"] = request
+    return templates.TemplateResponse("detailInfor.html", content)
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
     btn = f'<button type="button" class="auto-btn">▼</button>'

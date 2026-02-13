@@ -1,0 +1,5 @@
+templateLocation:
+  - data/Invitation_leter_template.docx
+
+outputLocation:
+  - DataBase/<Thường trú - ấp>_<Năm sinh>_<Họ và tên.removeSpace()>/
