@@ -3,21 +3,27 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import myPackages.dataContainer as dc
+import myPackages.invitationGenerator as inv
 from typing import Dict, Any
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 import yaml
 from fastapi import HTTPException
+from fastapi.responses import FileResponse
+import os
+from urllib.parse import quote
 
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
 settingFile = "setting/labelConfig.yaml"
 typedefFile = "setting/DataType.yaml"
 adminDivFile = "setting/AdministrativeDivision.yaml"
+generatorConfig ="setting/wordFileGeneratorConfig.yaml"
 dataKey = ["Thuongtruap","Namsinh","Hovaten"]
 searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
 requiredData = ["Namsinh","Hovaten","Thuongtruap"]
 dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
+invGen = inv.wordFileGenerator(generatorConfig,settingFile)
 
 # Mount static folder for CSS/JS/images
 templates = Jinja2Templates(directory="templates")
@@ -65,12 +71,22 @@ async def saveDatabase(request: Request):
 
 @app.get("/ExportInformation")
 async def ExportInformation(request: Request):
-    form = await request.form()  # This captures ALL form fields
-    data = dict(form)            # Convert to dictionary
-    return {
-        "title": "Export data successfully🎉",
-        "message": "Export data successfully🎉"
-    }
+    params: dict = dict(request.query_params)
+    content = dataCon.retObjDetailInformation(params)
+    retFileName = ""
+    for param in params.values():
+        retFileName = retFileName + param + "_"
+    retFileName = retFileName[:-1] + ".docx"
+    script_dir = os.getcwd()
+    outputLocation =os.path.join(script_dir, "invitation.docx")
+    invGen.generateWordFile(content["obj"],outputLocation)
+    encoded_filename = quote(retFileName)
+    response = FileResponse(
+        path=outputLocation,
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
+    response.headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{encoded_filename}"
+    return response
 
 @app.get("/AddNew")
 async def ExportInformation(request: Request):

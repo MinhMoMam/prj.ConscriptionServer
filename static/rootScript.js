@@ -160,14 +160,40 @@ function autocompleteWithDependency(communeSelect, provinceSelect, COMMUNE_BY_DI
   }
 
   async function exportData() {
+    let Hovaten = document.getElementsByName("Hovaten")[0].value;
+    let Namsinh = document.getElementsByName("Namsinh")[0].value;
+    let Thuongtruap = document.getElementsByName("Thuongtruap")[0].value;
+    let request = "/ExportInformation?Hovaten="+ Hovaten + "&Namsinh=" + Namsinh+ "&Thuongtruap=" + Thuongtruap;
     try {
-      const response = await fetch("/ExportInformation", {
+      const response = await fetch(request, {
         method: "GET"
       });
 
-      const data = await response.json();  // FastAPI response
+      if (!response.ok) {
+        showToast("Export failed ❌");
+        return;
+      }
 
-      showToast(data.message);  // show it in toast
+      const blob = await response.blob();
+
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      let disposition = response.headers.get("content-disposition");
+      let filename = "export.docx";
+
+      if (disposition && disposition.includes("filename*=")) {
+        filename = disposition.split("filename*=")[1].split("''")[1];
+        filename = decodeURIComponent(filename);
+      }
+      a.download = filename;   // filename
+      document.body.appendChild(a);
+      a.click();
+
+      a.remove();
+      window.URL.revokeObjectURL(url);
+
+      showToast("Export success ✅");
     }
     catch (error) {
       showToast("Error connecting to server ❌");
