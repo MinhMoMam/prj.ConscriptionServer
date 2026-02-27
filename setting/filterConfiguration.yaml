@@ -1,0 +1,190 @@
+MaDSConTitle: "Mã 4DS"
+
+DocumentList:
+  - MAU2.1DS
+  - MAU2.2DS
+  - MAU2.3DS
+  - MAU2.4DS
+  - MAU2.5DS
+  - MAU03DS
+  - MAU04DS
+  - MIENĐKNVQS
+
+MAU2.1DS:
+  SheetTitle: Mẫu 2.1DS
+  MaDSCon:
+    - 2.1-M
+    - 2.1-M
+    - 2.1-Loại 4
+    - 2.1-Loại 5
+    - 2.1-Loại 6
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU2.2DS:
+  SheetTitle: Mẫu 2.2DS
+  MaDSCon:
+    - 2.2-ĐH
+    - 2.2-CĐ
+    - 2.2-THPT
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU2.3DS:
+  SheetTitle: Mẫu 2.3DS
+  MaDSCon:
+    - 2.3-LĐDN
+    - 2.3.2
+    - 2.3-AETN
+    - 2.3.4
+    - 2.3.4
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU2.4DS:
+  SheetTitle: Mẫu 2.4DS
+  MaDSCon:
+    - 2.4
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU2.5DS:
+  SheetTitle: Mẫu 2.5DS
+  MaDSCon:
+    - 2.5
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU03DS:
+  SheetTitle: Mẫu số 03DS
+  MaDSCon:
+    - 3DS-Đ5
+    - 3DS-Đ6
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MAU04DS:
+  SheetTitle: Mẫu số 04Ds
+  MaDSCon:
+    - 4DS-ĐĐK
+    - 4.DS-DQTC
+    - 4.DS-DQBC
+    - 4.DS-DQCĐ
+    - 4.DS-XKLĐ
+    - 4.DS-DH
+    - 4.DS-VC
+    - 4.DS-CKQ
+    - 4.DS-CXM
+    - 4.3-BĐP
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+
+MIENĐKNVQS:
+  SheetTitle: MIỄN 10TC
+  MaDSCon:
+    - MIỄN ĐKNVQS
+  CotDuLieu:
+    - STT 
+    - TenNamSinh
+    - NgheNghiepCongViec
+    - HoKhauDiaChi
+    - Ap
+    - Xa 
+    - DanTocTonGiao
+    - HocVan
+    - ThongTinChaMe
+    - NoiDungXepLoai
+ 
+STT:
+  TenCot: "Số\nTT"
+  Template: "{index}"
+TenNamSinh:
+  TenCot: "Họ tên khai sinh;\nNgày tháng năm sinh."
+  Template: "{Họ và tên}\n{Ngày sinh}/{Tháng sinh}/{Năm sinh}"
+NgheNghiepCongViec:
+  TenCot: "Nghề nghiệp;\nNơi làm việc."
+  Template: "{Nghề nghiệp hiện nay}\n{Nơi làm việc và học tập}"
+HoKhauDiaChi:
+  TenCot: "Hộ khẩu thường trú;\nNơi ở hiện nay của bản thân (tạm trú)."
+  Template: "{Thường trú - số nhà}\n{Thường trú - ấp}\n{Thường trú - xã}\n{Thường trú - tỉnh/Tp}\n\n{Tạm trú - số nhà}\n{Tạm trú - ấp}\n{Tạm trú - xã}\n{Tạm trú - tỉnh/ Tp}"
+Ap:
+  TenCot: "ấp"
+  Template: "{Thường trú - ấp}"
+Xa:
+  TenCot: "xã"
+  Template: "{Thường trú - xã}"
+DanTocTonGiao:
+  TenCot: "Dân tộc;\nTôn giáo."
+  Template: "{Dân tộc}\n{Tôn giáo}"
+HocVan:
+  TenCot: "Học vấn;\nChuyên môn kỹ thuật;Đảng\n(ngày kết nạp)\nĐoàn."
+  Template: "{Học vấn}"
+ThongTinChaMe:
+  TenCot: "Họ tên cha; năm sinh, nghề nghiệp\nHọ tên mẹ; năm sinh, nghề nghiệp\nHọ tên vợ; năm sinh, nghề nghiệp"
+  Template: "{Họ tên cha}\n{Cha - Ngày sinh}/{Tháng sinh Cha}/{Năm sinh Cha}\n{Họ tên mẹ}\n{Mẹ - ngày sinh}/{Tháng sinh Mẹ}/{Năm sinh Mẹ}"
+NoiDungXepLoai:
+  TenCot: "Số lần kết luận khám sức khỏe trước đây\n(ghi rõ những lần khám trước, năm:..., loại sức khỏe:..., tên bệnh….."
+  Template: "{Nội dung xếp loại}."

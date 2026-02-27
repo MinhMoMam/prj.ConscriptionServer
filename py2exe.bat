@@ -1,4 +1,9 @@
-pyinstaller MyServer.py
+rmdir /s /q build
+rmdir /s /q dist
+pyinstaller MyServer.py ^
+  --collect-all spire ^
+  --hidden-import spire.doc ^
+  --hidden-import spire.doc.common
 xcopy setting dist\MyServer\setting /E /I /H /Y
 xcopy static dist\MyServer\static /E /I /H /Y
 xcopy templates dist\MyServer\templates /E /I /H /Y

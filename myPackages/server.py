@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import myPackages.dataContainer as dc
 import myPackages.invitationGenerator as inv
+import myPackages.dataFilter as df
 from typing import Dict, Any
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
@@ -19,11 +20,13 @@ settingFile = "setting/labelConfig.yaml"
 typedefFile = "setting/DataType.yaml"
 adminDivFile = "setting/AdministrativeDivision.yaml"
 generatorConfig ="setting/wordFileGeneratorConfig.yaml"
+filterConfig = "setting/filterConfiguration.yaml"
 dataKey = ["Thuongtruap","Namsinh","Hovaten"]
 searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
 requiredData = ["Namsinh","Hovaten","Thuongtruap"]
 dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
 invGen = inv.wordFileGenerator(generatorConfig,settingFile)
+dataFilter = df.dataFilter(filterConfig)
 
 # Mount static folder for CSS/JS/images
 templates = Jinja2Templates(directory="templates")
@@ -94,6 +97,20 @@ async def ExportInformation(request: Request):
     content = dataCon.retObjDetailInformation({})
     content["request"] = request
     return templates.TemplateResponse("detailInfor.html", content)
+
+@app.get("/filterData")
+async def filterData(request: Request):
+    fileName = "FilteredData.xlsx"
+    dataFilter.filterData(dataCon.dataframe,fileName)
+    script_dir = os.getcwd()
+    outputLocation =os.path.join(script_dir, fileName)
+    encoded_filename = quote(fileName)
+    response = FileResponse(
+        path=outputLocation,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
+    response.headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{encoded_filename}"
+    return response
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
     btn = f'<button type="button" class="auto-btn">▼</button>'
