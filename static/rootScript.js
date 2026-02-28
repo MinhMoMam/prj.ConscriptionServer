@@ -200,40 +200,28 @@ function autocompleteWithDependency(communeSelect, provinceSelect, COMMUNE_BY_DI
     }
   }
 
-  async function filterData() {
-    let request = "/filterData"
-    try {
-      const response = await fetch(request, {
-        method: "GET"
-      });
+async function filterData(event) {
+    event.preventDefault();  // 🔥 CRITICAL
 
-      if (!response.ok) {
-        showToast("Failed ❌");
-        return;
-      }
+    const request = "/filterData?t=" + new Date().getTime();
 
-      const blob = await response.blob();
+    const response = await fetch(request, {
+        cache: "no-store"
+    });
 
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      let disposition = response.headers.get("content-disposition");
-      let filename = "FilterData.xlsx";
+    if (!response.ok) return;
 
-      if (disposition && disposition.includes("filename*=")) {
-        filename = disposition.split("filename*=")[1].split("''")[1];
-        filename = decodeURIComponent(filename);
-      }
-      a.download = filename;   // filename
-      document.body.appendChild(a);
-      a.click();
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
 
-      a.remove();
-      window.URL.revokeObjectURL(url);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "data.xlsx";
+    document.body.appendChild(a);
+    a.click();
 
-      showToast("Export success ✅");
-    }
-    catch (error) {
-      showToast("Error connecting to server ❌");
-    }
-  }
+    setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }, 1000);
+}

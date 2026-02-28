@@ -1,5 +1,6 @@
 import yaml
 import pandas as pd
+from io import BytesIO
 
 class dataFilter:
     def __init__(self ,subDocConfig):
@@ -43,3 +44,14 @@ class dataFilter:
         with pd.ExcelWriter(outputLocation, engine="openpyxl") as writer:
             for sheetName, df in savedData.items():
                 df.to_excel(writer, sheet_name=self.filterConfig[sheetName]["SheetTitle"], index=False)
+        output = BytesIO()
+        with pd.ExcelWriter(output, engine="openpyxl") as writer:
+            for sheetName, df in savedData.items():
+                df.to_excel(
+                    writer,
+                    sheet_name=self.filterConfig[sheetName]["SheetTitle"],
+                    index=False
+                )
+
+        output.seek(0)
+        return output

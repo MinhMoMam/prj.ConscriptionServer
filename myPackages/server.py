@@ -13,6 +13,9 @@ from fastapi import HTTPException
 from fastapi.responses import FileResponse
 import os
 from urllib.parse import quote
+from io import BytesIO
+from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
@@ -34,6 +37,13 @@ templates = Jinja2Templates(directory="templates")
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/", response_class=HTMLResponse)
 def read_root(request: Request):
@@ -101,16 +111,17 @@ async def ExportInformation(request: Request):
 @app.get("/filterData")
 async def filterData(request: Request):
     fileName = "FilteredData.xlsx"
-    dataFilter.filterData(dataCon.dataframe,fileName)
+    output = dataFilter.filterData(dataCon.dataframe,fileName)
     script_dir = os.getcwd()
     outputLocation =os.path.join(script_dir, fileName)
     encoded_filename = quote(fileName)
-    response = FileResponse(
+    if not os.path.exists(outputLocation):
+        raise HTTPException(status_code=404, detail="File not found")
+    return FileResponse(
         path=outputLocation,
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        filename=fileName
     )
-    response.headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{encoded_filename}"
-    return response
 
 def gatherInformation(key,question,valueLabel,placeHodler,dataType):
     btn = f'<button type="button" class="auto-btn">▼</button>'
