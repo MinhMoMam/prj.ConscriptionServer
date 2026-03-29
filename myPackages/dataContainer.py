@@ -4,6 +4,8 @@ import yaml
 import os
 import unicodedata
 
+updateDateTimeColTitle = "Last time update"
+
 class dataContainer:
     def __init__(self, execelFile, setting,keys,searchingKeys):
         # Load configration
@@ -15,6 +17,7 @@ class dataContainer:
         self.dataframe = self.dataframe
         self.dataframe = self.dataframe.apply(pd.to_numeric, errors="ignore")
         self.dataframe = processKeyInfor(self.dataframe,searchingKeys,self.config)
+        self.dataframe = processLastTimeUpdateColumn(self.dataframe)
         float_cols = self.dataframe.select_dtypes(include="float").columns
         self.dataframe[float_cols] = (self.dataframe[float_cols].replace([np.inf, -np.inf], pd.NA).round().astype("Int64"))
         self.keys = keys
@@ -129,6 +132,7 @@ class dataContainer:
         FinalRetDict = {}
         FinalRetDict["obj"] = retDict
         FinalRetDict["config"] = self.config
+        FinalRetDict["LastTimeUpdated"] = retDataFrame.iloc[0][updateDateTimeColTitle]
         return FinalRetDict
 
 
@@ -162,7 +166,7 @@ class dataContainer:
                         self.dataframe.loc[idx, self.config[key]["ColumnLabel"]] = dtype.type(value)
             except:
                 return "TypeError"
-        
+        self.dataframe.loc[idx, updateDateTimeColTitle] = pd.Timestamp.now().floor("s")
         return "Success"
     
     def saveExcelFile(self):
@@ -200,6 +204,11 @@ def processKeyInfor(dataFrame,KeyList,config):
         dataFrame[lable] = dataFrame[lable].apply(normalize_text)
     return dataFrame
 
+def processLastTimeUpdateColumn(inputDataFrame):
+    if "column_name" in inputDataFrame.columns:
+        return inputDataFrame
+    inputDataFrame[updateDateTimeColTitle] = pd.Timestamp.now().floor("s")
+    return inputDataFrame
 
 def normalize_text(text):
     return unicodedata.normalize("NFC", text)
