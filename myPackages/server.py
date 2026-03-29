@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 import myPackages.dataContainer as dc
 import myPackages.invitationGenerator as inv
 import myPackages.dataFilter as df
+import myPackages.login as lg
 from typing import Dict, Any
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
@@ -16,6 +17,7 @@ from urllib.parse import quote
 from io import BytesIO
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 
 excelFile = "data/CƠ CẤU HỆ THỐNG.xlsx"
@@ -24,12 +26,14 @@ typedefFile = "setting/DataType.yaml"
 adminDivFile = "setting/AdministrativeDivision.yaml"
 generatorConfig ="setting/wordFileGeneratorConfig.yaml"
 filterConfig = "setting/filterConfiguration.yaml"
+loginConfig = "setting/login.yaml"
 dataKey = ["Thuongtruap","Namsinh","Hovaten"]
 searchingKey = ["Thuongtruap","Namsinh","Hovaten"]
 requiredData = ["Namsinh","Hovaten","Thuongtruap"]
 dataCon = dc.dataContainer(excelFile,settingFile,dataKey,searchingKey)
 invGen = inv.wordFileGenerator(generatorConfig,settingFile)
 dataFilter = df.dataFilter(filterConfig)
+pageGuard = lg.guard(loginConfig)
 
 # Mount static folder for CSS/JS/images
 templates = Jinja2Templates(directory="templates")
@@ -51,12 +55,36 @@ def read_root(request: Request):
     content["request"] = request
     return templates.TemplateResponse("root.html", content)
 
+@app.post("/Login")
+async def login(request: Request):
+    body = await request.json()
+    username = body.get("username")
+    password = body.get("password")
+    checkLogin = pageGuard.login(username,password)
+    if checkLogin.startswith("[Error]:"):
+        return JSONResponse(
+            status_code=401,
+            content={"message": checkLogin.replace("[Error]:","")}
+        )
+    else:
+        return JSONResponse(
+            status_code=200,
+            content={"message": checkLogin}
+        )
+    
+@app.get("/home", response_class=HTMLResponse)
+def read_root(request: Request):
+    content = dataCon.getRootParam();
+    content["foundObj"] = []
+    content["request"] = request
+    return templates.TemplateResponse("home.html", content)
+
 @app.get("/ObjectSearching", response_class=HTMLResponse)
 def ObjectSearching(request: Request):
     params: dict = dict(request.query_params)
     content = dataCon.returnSearchResult(params)
     content["request"] = request
-    return templates.TemplateResponse("root.html", content) 
+    return templates.TemplateResponse("home.html", content) 
 
 @app.get("/details", response_class=HTMLResponse)
 def detailsView(request: Request):

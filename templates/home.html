@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Danh sách + Thanh tìm kiếm</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+      html,
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+
+      /* Background Image Link */
+      background-image: url("/static/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* White page container */
+    .page {
+      width: 75vw;       /* 90% of screen width */
+      height: 95vh;     /* full screen height */
+      background: rgba(255, 255, 255, 0.90);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;  /* scroll if content is too much */
+    }
+
+    /* Sub divs inside the white page */
+    .sub-box {
+      background: #f2f2f2;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+
+    .sub-box h2 {
+      margin: 0 0 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+    <h1>Tra cứu thông tin nghĩa vụ quân sự</h1>
+    <div class="container">
+        <form autocomplete="on" action="/ObjectSearching">
+            
+            <div class="autocomplete" style="width:250px;" id="Hovaten" >
+                <input type="text" class="auto-input" name="Hovaten" placeholder="Tên thanh niên">
+                <button type="button" class="auto-btn">▼</button>
+            </div>
+            <div class="autocomplete" style="width:150px;" id="Namsinh" >
+                <input type="text" class="auto-input" name="Namsinh" placeholder="Năm sinh">
+                <button type="button" class="auto-btn">▼</button>
+            </div>
+            <div class="autocomplete" style="width:150px;" id="Thuongtruap">
+                <input type="text" class="auto-input" name="Thuongtruap" placeholder="Ấp">
+                <button type="button" class="auto-btn">▼</button>
+            </div>
+            <input type="submit">
+        </form>
+
+    </div>
+    <br>
+    <form action="/AddNew" method="get">
+        <button type="submit">Thêm thanh niên mới</button>
+    </form>
+    <br>
+
+    <form onsubmit="filterData(event)">
+        <button type="submit">Phân loại đối tượng</button>
+    </form>
+    
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th width = 250px>Tên</th>
+                <th width = 150px>Năm sinh</th>
+                <th width = 150px>Ấp</th>
+                <th width = 150px>XEM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in foundObj %}
+            <tr>
+                <td width = 250px align="center">{{ obj['Hovaten'] }}</td>
+                <td width = 150px align="center">{{ obj['Namsinh'] }}</td>
+                <td width = 150px align="center">{{ obj['Thuongtruap'] }}</td>
+                <td  align="center">
+                    <a href="/details?Hovaten={{ obj['Hovaten'] }}&Namsinh={{ obj['Namsinh'] }}&Thuongtruap={{ obj['Thuongtruap'] }}">Xem thêm</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Link external JS -->
+    <script src="/static/rootScript.js"></script>
+    <script>
+        const NameList = {{ Hovaten | tojson }};
+    </script>
+    <script>
+        const yearOfBirthList = {{ Namsinh | tojson }};
+    </script>
+    <script>
+        const CommuneList = {{ Thuongtruap | tojson }};
+    </script>
+    <script>
+    autocomplete(document.getElementById("Hovaten"), NameList);
+    </script>
+    <script>
+    autocomplete(document.getElementById("Namsinh"), yearOfBirthList);
+    </script>
+    <script>
+    autocomplete(document.getElementById("Thuongtruap"), CommuneList);
+    </script>
+    </div>
+    <div id="toast"></div>
+</body>
+</html>

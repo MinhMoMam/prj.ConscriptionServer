@@ -163,6 +163,32 @@ function autocompleteWithDependency(communeSelect, provinceSelect, COMMUNE_BY_DI
     }
   }
 
+  async function Login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    try {
+      const response = await fetch("/Login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      });
+      if (response.ok) {
+        // 👉 go to new page
+        window.location.href = "/home";  // or whatever page server uses
+      } else {
+        const data = await response.json();
+        showToast(data.message);
+      }
+    } catch (error) {
+      showToast("Error connecting to server ❌");
+    }
+}
+
   async function exportData() {
     let Hovaten = document.getElementsByName("Hovaten")[0].value;
     let Namsinh = document.getElementsByName("Namsinh")[0].value;

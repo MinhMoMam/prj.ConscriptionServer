@@ -44,84 +44,40 @@
       margin: 0 0 10px;
     }
 
+    .login-container {
+      width: 250px;
+      margin: auto;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .login-container input {
+      width: 100%;        /* same width */
+      padding: 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 8px;
+    }
+
     </style>
 </head>
 <body>
     <div class="page">
-    <h1>Tra cứu thông tin nghĩa vụ quân sự</h1>
-    <div class="container">
-        <form autocomplete="on" action="/ObjectSearching">
-            
-            <div class="autocomplete" style="width:250px;" id="Hovaten" >
-                <input type="text" class="auto-input" name="Hovaten" placeholder="Tên thanh niên">
-                <button type="button" class="auto-btn">▼</button>
-            </div>
-            <div class="autocomplete" style="width:150px;" id="Namsinh" >
-                <input type="text" class="auto-input" name="Namsinh" placeholder="Năm sinh">
-                <button type="button" class="auto-btn">▼</button>
-            </div>
-            <div class="autocomplete" style="width:150px;" id="Thuongtruap">
-                <input type="text" class="auto-input" name="Thuongtruap" placeholder="Ấp">
-                <button type="button" class="auto-btn">▼</button>
-            </div>
-            <input type="submit">
-        </form>
+    <h1>Đăng nhập</h1>
+        <div class="login-container">
 
-    </div>
-    <br>
-    <form action="/AddNew" method="get">
-        <button type="submit">Thêm thanh niên mới</button>
-    </form>
-    <br>
+            <input id="username" type="text" placeholder="Username"><br>
+            <input id="password" type="password" placeholder="Password"><br>
 
-    <form onsubmit="filterData(event)">
-        <button type="submit">Phân loại đối tượng</button>
-    </form>
-    
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th width = 250px>Tên</th>
-                <th width = 150px>Năm sinh</th>
-                <th width = 150px>Ấp</th>
-                <th width = 150px>XEM</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for obj in foundObj %}
-            <tr>
-                <td width = 250px align="center">{{ obj['Hovaten'] }}</td>
-                <td width = 150px align="center">{{ obj['Namsinh'] }}</td>
-                <td width = 150px align="center">{{ obj['Thuongtruap'] }}</td>
-                <td  align="center">
-                    <a href="/details?Hovaten={{ obj['Hovaten'] }}&Namsinh={{ obj['Namsinh'] }}&Thuongtruap={{ obj['Thuongtruap'] }}">Xem thêm</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+            <button type="button" onclick="Login()">Login</button>
+        </div>
+    <div id="toast"></div>
     <!-- Link external JS -->
     <script src="/static/rootScript.js"></script>
-    <script>
-        const NameList = {{ Hovaten | tojson }};
-    </script>
-    <script>
-        const yearOfBirthList = {{ Namsinh | tojson }};
-    </script>
-    <script>
-        const CommuneList = {{ Thuongtruap | tojson }};
-    </script>
-    <script>
-    autocomplete(document.getElementById("Hovaten"), NameList);
-    </script>
-    <script>
-    autocomplete(document.getElementById("Namsinh"), yearOfBirthList);
-    </script>
-    <script>
-    autocomplete(document.getElementById("Thuongtruap"), CommuneList);
-    </script>
     </div>
 </body>
 </html>
