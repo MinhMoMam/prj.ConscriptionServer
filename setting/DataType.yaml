@@ -1,6 +1,7 @@
 
 
 DataTypeList:
+  - Ma4ds
   - HocVan
   - TrinhDoChuyenMon
   - DanToc
@@ -25,6 +26,35 @@ dateYear:
   - "1900"
   - "2026"
 
+Ma4ds:
+  - "2.1-M"
+  - "2.1-M"
+  - "2.1-Loại 4"
+  - "2.1-Loại 5"
+  - "2.1-Loại 6"
+  - "2.2-ĐH"
+  - "2.2-CĐ"
+  - "2.2-THPT"
+  - "2.3-LĐDN"
+  - "2.3.2"
+  - "2.3-AETN"
+  - "2.3.4"
+  - "2.3.4"
+  - "2.4"
+  - "2.5"
+  - "3DS-Đ5"
+  - "3DS-Đ6"
+  - "4DS-ĐĐK"
+  - "4.DS-DQTC"
+  - "4.DS-DQBC"
+  - "4.DS-DQCĐ"
+  - "4.DS-XKLĐ"
+  - "4.DS-DH"
+  - "4.DS-VC"
+  - "4.DS-CKQ"
+  - "4.DS-CXM"
+  - "4.3-BĐP"
+  - "MIỄN ĐKNVQS"
 
 HocVan:
   - 0/12

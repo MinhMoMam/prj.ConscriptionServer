@@ -109,7 +109,7 @@ Ma4ds:
   Question: "Mã 4DS"
   Group: "hiden"
   Object: "personal"
-  DataType: "string"
+  DataType: "Ma4ds"
   PlaceHolder: ""
 
 Noidungxeploai:

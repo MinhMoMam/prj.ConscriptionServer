@@ -377,6 +377,20 @@
         
         {{ ns.otherInfor | safe }}
 
+        <div class="section-title">VI. Quyết định nghĩa vụ quân sự</div>
+        {%- set ns = namespace(otherInfor="") -%}
+        {%- for key in config["columnList"] -%}
+        {%- if config[key]["Group"] == "hiden" -%}
+            {%- set question = config[key]['Question'].replace("\n","") -%}
+            {%- set valueLabel  = obj[key] -%}
+            {%- set placeHodler = config[key]['PlaceHolder'] -%}
+            {%- set dataType = config[key]['DataType'] -%}
+            {%- set ns.otherInfor = ns.otherInfor ~ gatherInformation(key,question,valueLabel,placeHodler,dataType) -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {{ ns.otherInfor | safe }}
+
         <p style="text-align: center;">
             <button id="myButton" type="submit">Gửi dữ liệu</button>
         </p>

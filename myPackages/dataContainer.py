@@ -86,8 +86,6 @@ class dataContainer:
                     value = str(value)
                     target_dtype = "string"
                 keyword = normalize_text(value)
-                print(keyword)
-                print(retDataFrame[self.config[key]["ColumnLabel"]])
                 retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == keyword]
                 emptySearchParam = False
         if not emptySearchParam:
@@ -121,8 +119,8 @@ class dataContainer:
                 return {}
             else:
                 for column in self.config["columnList"]:
-                    if self.config[column]["Group"] == "hiden":
-                        continue
+                    # if self.config[column]["Group"] == "hiden":
+                    #     continue
                     value = retDataFrame.iloc[0][self.config[column]["ColumnLabel"]]
                     if str(value) == "nan" or str(value) == "<NA>":
                         retDict[column] = ""
@@ -196,7 +194,6 @@ def processKeyInfor(dataFrame,KeyList,config):
     lableList = []
     for key in KeyList:
         if config[key]["DataType"] == "string":
-            print()
             lableList.append(config[key]["ColumnLabel"])
     for lable in lableList: 
         dataFrame[lable] = [str(x) for x in dataFrame[lable]]
