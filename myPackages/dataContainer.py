@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import yaml
 import os
+import unicodedata
 
 class dataContainer:
     def __init__(self, execelFile, setting,keys,searchingKeys):
@@ -13,6 +14,7 @@ class dataContainer:
         self.dataframe = pd.read_excel(execelFile, sheet_name=self.config["Sheet"])
         self.dataframe = self.dataframe
         self.dataframe = self.dataframe.apply(pd.to_numeric, errors="ignore")
+        self.dataframe = processKeyInfor(self.dataframe,searchingKeys,self.config)
         float_cols = self.dataframe.select_dtypes(include="float").columns
         self.dataframe[float_cols] = (self.dataframe[float_cols].replace([np.inf, -np.inf], pd.NA).round().astype("Int64"))
         self.keys = keys
@@ -83,7 +85,10 @@ class dataContainer:
                 else:
                     value = str(value)
                     target_dtype = "string"
-                retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == value]
+                keyword = normalize_text(value)
+                print(keyword)
+                print(retDataFrame[self.config[key]["ColumnLabel"]])
+                retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == keyword]
                 emptySearchParam = False
         if not emptySearchParam:
             for index, row in retDataFrame.iterrows():
@@ -110,7 +115,8 @@ class dataContainer:
                     value = str(value)
                     target_dtype = "string"
                 if value != "":
-                    retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == value]
+                    keyword = normalize_text(value)
+                    retDataFrame = retDataFrame[retDataFrame[self.config[key]["ColumnLabel"]].astype(target_dtype) == keyword]
             if len(retDataFrame) != 1:
                 return {}
             else:
@@ -185,3 +191,18 @@ def highlight_differences(df1, df2, color="yellow"):
         return styles
 
     return df1.style.apply(style_func, axis=None)
+
+def processKeyInfor(dataFrame,KeyList,config):
+    lableList = []
+    for key in KeyList:
+        if config[key]["DataType"] == "string":
+            print()
+            lableList.append(config[key]["ColumnLabel"])
+    for lable in lableList: 
+        dataFrame[lable] = [str(x) for x in dataFrame[lable]]
+        dataFrame[lable] = dataFrame[lable].apply(normalize_text)
+    return dataFrame
+
+
+def normalize_text(text):
+    return unicodedata.normalize("NFC", text)

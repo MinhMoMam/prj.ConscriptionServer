@@ -10,7 +10,7 @@ function autocomplete(container, arr) {
     container.appendChild(list);
 
     arr.forEach(item => {
-      if (!val || item.toUpperCase().startsWith(val.toUpperCase()) || val === "") {
+      if (!val || normalizeStr(item).toUpperCase().startsWith(normalizeStr(val).toUpperCase()) || val === "") {
         const div = document.createElement("DIV");
         div.textContent = item;
 
@@ -45,6 +45,10 @@ function autocomplete(container, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
+}
+
+function normalizeStr(str) {
+  return str.normalize("NFC");
 }
 
 
