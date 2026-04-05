@@ -209,7 +209,7 @@ def createOptionForLables(config):
     retStr = "<script>\n"
     # Normal Types
     for column in config["columnList"]:
-        if config[column]["DataType"] == "string" or config[column]["DataType"] == "Communes":
+        if config[column]["DataType"] == "string" or config[column]["DataType"] == "Communes"or config[column]["Group"] == "hiden":
             continue
         else:
             retStr = retStr + f'autocomplete(document.getElementById("{column}"), {config[column]["DataType"]})\n'
