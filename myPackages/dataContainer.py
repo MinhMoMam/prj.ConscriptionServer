@@ -132,7 +132,7 @@ class dataContainer:
         FinalRetDict = {}
         FinalRetDict["obj"] = retDict
         FinalRetDict["config"] = self.config
-        FinalRetDict["LastTimeUpdated"] = retDataFrame.iloc[0][updateDateTimeColTitle]
+        FinalRetDict["LastTimeUpdated"] = pd.to_datetime(retDataFrame.iloc[0][updateDateTimeColTitle], unit="ns")
         return FinalRetDict
 
 
@@ -205,7 +205,7 @@ def processKeyInfor(dataFrame,KeyList,config):
     return dataFrame
 
 def processLastTimeUpdateColumn(inputDataFrame):
-    if "column_name" in inputDataFrame.columns:
+    if updateDateTimeColTitle in inputDataFrame.columns:
         return inputDataFrame
     inputDataFrame[updateDateTimeColTitle] = pd.Timestamp.now().floor("s")
     return inputDataFrame

@@ -53,7 +53,7 @@ app.add_middleware(
 def read_root(request: Request):
     content = dataCon.getRootParam();
     content["request"] = request
-    return templates.TemplateResponse("root.html", content)
+    return templates.TemplateResponse("home.html", content)
 
 @app.post("/Login")
 async def login(request: Request):
